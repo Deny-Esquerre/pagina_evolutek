@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 
 const topItems = [
   {
-    title: "Reusable issue templates.",
+    title: "Capturamos y conectamos tus datos.",
     description:
-      "Draft lightning-fast documents with our Smart Instructions and Templates.",
+      "Sensores, PLC, RTU e instrumentación conectados a tus sistemas de supervisión y control.",
     images: [
       {
         src: "/resource-allocation/templates.webp",
@@ -22,8 +22,9 @@ const topItems = [
     fade: [""],
   },
   {
-    title: "Simplify your stack.",
-    description: "No more Confluence, SharePoint, or Microsoft Word.",
+    title: "Un ecosistema tecnológico conectado.",
+    description:
+      "Automatización, IIoT y plataformas de datos trabajando en conjunto.",
     images: [
       { src: "/logos/jira.svg", alt: "Jira logo", width: 48, height: 48 },
       { src: "/logos/excel.svg", alt: "Excel logo", width: 48, height: 48 },
@@ -62,9 +63,9 @@ const topItems = [
 
 const bottomItems = [
   {
-    title: "Graveyard it.",
+    title: "Contextualizamos la información.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.",
+      "Los datos de planta se organizan y enriquecen con contexto operativo.",
     images: [
       {
         src: "/resource-allocation/graveyard.webp",
@@ -78,9 +79,9 @@ const bottomItems = [
     fade: ["bottom"],
   },
   {
-    title: "Task discussions.",
+    title: "Historizamos cada variable.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      "Registro histórico de variables, eventos y KPIs de tus procesos.",
     images: [
       {
         src: "/resource-allocation/discussions.webp",
@@ -94,9 +95,9 @@ const bottomItems = [
     fade: [""],
   },
   {
-    title: "Notifications.",
+    title: "Analizamos y decidimos.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      "Analítica y visualización para convertir datos en decisiones.",
     images: [
       {
         src: "/resource-allocation/notifications.webp",
@@ -119,7 +120,7 @@ export const ResourceAllocation = () => {
     >
       <div className="">
         <h2 className="container text-center text-3xl tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">
-          Mainline your resource allocation and execution
+          Del dato a la inteligencia industrial
         </h2>
 
         <div className="mt-8 md:mt-12 lg:mt-20">

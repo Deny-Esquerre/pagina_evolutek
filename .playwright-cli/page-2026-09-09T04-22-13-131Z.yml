@@ -1,0 +1,284 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Evolutek" [ref=e411]
+    - navigation "Main" [ref=e6]:
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Features" [ref=e10] [cursor=pointer]
+        - listitem [ref=e13]:
+          - link "About Us" [ref=e14] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e15]:
+          - link "FAQ" [ref=e16] [cursor=pointer]:
+            - /url: /faq
+        - listitem [ref=e17]:
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: /contact
+    - generic [ref=e19]:
+      - button "Toggle theme" [active] [ref=e20] [cursor=pointer]
+      - link [ref=e22] [cursor=pointer]:
+        - /url: /login
+        - button "Login" [ref=e23]
+      - link "GitHub" [ref=e25] [cursor=pointer]:
+        - /url: https://github.com/shadcnblocks/mainline-nextjs-template
+  - main [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - heading "Mainline Next.js template" [level=1] [ref=e35]
+            - paragraph [ref=e36]: Mainline is an open-source website template built with shadcn/ui, Tailwind 4 & Next.js
+            - generic [ref=e37]:
+              - link "Get template" [ref=e38] [cursor=pointer]:
+                - /url: https://github.com/shadcnblocks/mainline-nextjs-template
+              - link "Built by shadcnblocks.com" [ref=e39] [cursor=pointer]:
+                - /url: https://shadcnblocks.com
+          - generic [ref=e40]:
+            - generic [ref=e47]:
+              - heading "Tailored workflows" [level=2] [ref=e48]
+              - paragraph [ref=e49]: Track progress across custom issue flows for your team.
+            - generic [ref=e54]:
+              - heading "Cross-team projects" [level=2] [ref=e55]
+              - paragraph [ref=e56]: Collaborate across teams and departments.
+            - generic [ref=e60]:
+              - heading "Milestones" [level=2] [ref=e61]
+              - paragraph [ref=e62]: Break projects down into concrete phases.
+            - generic [ref=e65]:
+              - heading "Progress insights" [level=2] [ref=e66]
+              - paragraph [ref=e67]: Track scope, velocity, and progress over time.
+        - img "hero" [ref=e70]
+      - generic [ref=e72]:
+        - heading "Powering the world's best product teams. From next-gen startups to established enterprises." [level=2] [ref=e74]: Powering the world's best product teams.From next-gen startups to established enterprises.
+        - generic [ref=e75]:
+          - generic [ref=e77]:
+            - link [ref=e78] [cursor=pointer]:
+              - /url: https://mercury.com
+              - img "Mercury logo" [ref=e79]
+            - link [ref=e80] [cursor=pointer]:
+              - /url: https://watershed.com
+              - img "Watershed logo" [ref=e81]
+            - link [ref=e82] [cursor=pointer]:
+              - /url: https://retool.com
+              - img "Retool logo" [ref=e83]
+            - link [ref=e84] [cursor=pointer]:
+              - /url: https://descript.com
+              - img "Descript logo" [ref=e85]
+          - generic [ref=e87]:
+            - link [ref=e88] [cursor=pointer]:
+              - /url: https://perplexity.com
+              - img "Perplexity logo" [ref=e89]
+            - link [ref=e90] [cursor=pointer]:
+              - /url: https://monzo.com
+              - img "Monzo logo" [ref=e91]
+            - link [ref=e92] [cursor=pointer]:
+              - /url: https://ramp.com
+              - img "Ramp logo" [ref=e93]
+            - link [ref=e94] [cursor=pointer]:
+              - /url: https://raycast.com
+              - img "Raycast logo" [ref=e95]
+            - link [ref=e96] [cursor=pointer]:
+              - /url: https://arc.com
+              - img "Arc logo" [ref=e97]
+      - generic [ref=e99]:
+        - generic [ref=e100]: MEASURE TWICE. CUT ONCE.
+        - generic [ref=e104]:
+          - heading "Made for modern product teams" [level=2] [ref=e105]
+          - paragraph [ref=e106]: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+        - generic [ref=e108]:
+          - generic [ref=e110]:
+            - img "Purpose-built for product development interface" [ref=e112]
+            - link [ref=e114] [cursor=pointer]:
+              - /url: "#"
+              - heading "Purpose-built for product development" [level=3] [ref=e115]
+          - generic [ref=e123]:
+            - img "Manage projects end-to-end interface" [ref=e125]
+            - link [ref=e127] [cursor=pointer]:
+              - /url: "#"
+              - heading "Manage projects end-to-end" [level=3] [ref=e128]
+          - generic [ref=e136]:
+            - img "Build momentum and healthy habits interface" [ref=e138]
+            - link [ref=e140] [cursor=pointer]:
+              - /url: "#"
+              - heading "Build momentum and healthy habits" [level=3] [ref=e141]
+      - generic [ref=e146]:
+        - heading "Mainline your resource allocation and execution" [level=2] [ref=e147]
+        - generic [ref=e148]:
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - heading "Reusable issue templates." [level=3] [ref=e154]
+                - generic [ref=e155]: Draft lightning-fast documents with our Smart Instructions and Templates.
+              - img "Issue template interface" [ref=e157]
+            - generic [ref=e160]:
+              - generic [ref=e161]:
+                - heading "Simplify your stack." [level=3] [ref=e162]
+                - generic [ref=e163]: No more Confluence, SharePoint, or Microsoft Word.
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - img "Jira logo" [ref=e168]
+                  - img "Excel logo" [ref=e171]
+                  - img "Notion logo" [ref=e174]
+                  - img "Word logo" [ref=e177]
+                - generic [ref=e179]:
+                  - img "Monday logo" [ref=e181]
+                  - img "Google Drive logo" [ref=e184]
+                  - img "Jira logo" [ref=e187]
+                  - img "Asana logo" [ref=e190]
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - generic [ref=e196]:
+                - heading "Graveyard it." [level=3] [ref=e197]
+                - generic [ref=e198]: Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.
+              - img "Graveyard interface" [ref=e200]
+            - generic [ref=e203]:
+              - generic [ref=e204]:
+                - heading "Task discussions." [level=3] [ref=e205]
+                - generic [ref=e206]: Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+              - img "Task discussions interface" [ref=e208]
+            - generic [ref=e211]:
+              - generic [ref=e212]:
+                - heading "Notifications." [level=3] [ref=e213]
+                - generic [ref=e214]: Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+              - img "Notifications interface" [ref=e216]
+    - generic [ref=e220]:
+      - generic [ref=e221]:
+        - heading "Trusted by product builders" [level=2] [ref=e222]
+        - paragraph [ref=e223]: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+        - button "Read our Customer Stories" [ref=e224] [cursor=pointer]
+      - region [ref=e226]:
+        - generic [ref=e228]:
+          - group [ref=e229]:
+            - generic [ref=e231]:
+              - img "Amy Chase" [ref=e233]
+              - generic [ref=e234]:
+                - blockquote [ref=e235]: We're misusing Mainline as a CRM and it still works!
+                - generic [ref=e236]:
+                  - generic [ref=e237]: Amy Chase, PM
+                  - generic [ref=e238]: Mercury Finance
+          - group [ref=e239]:
+            - generic [ref=e241]:
+              - img "Jonas Kotara" [ref=e243]
+              - generic [ref=e244]:
+                - blockquote [ref=e245]: I was able to replace 80% of my team with Mainline bots.
+                - generic [ref=e246]:
+                  - generic [ref=e247]: Jonas Kotara, Lead Engineer
+                  - generic [ref=e248]: Mercury Finance
+          - group [ref=e249]:
+            - generic [ref=e251]:
+              - img "Kevin Yam" [ref=e253]
+              - generic [ref=e254]:
+                - blockquote [ref=e255]: Founder Mode is hard enough without having a really nice PM app.
+                - generic [ref=e256]:
+                  - generic [ref=e257]: Kevin Yam, Founder
+                  - generic [ref=e258]: Mercury Finance
+          - group [ref=e259]:
+            - generic [ref=e261]:
+              - img "Kundo Marta" [ref=e263]
+              - generic [ref=e264]:
+                - blockquote [ref=e265]: I can use the tool as a substitute from my PM.
+                - generic [ref=e266]:
+                  - generic [ref=e267]: Kundo Marta, Founder
+                  - generic [ref=e268]: Mercury Finance
+          - group [ref=e269]:
+            - generic [ref=e271]:
+              - img "Amy Chase" [ref=e273]
+              - generic [ref=e274]:
+                - blockquote [ref=e275]: We're misusing Mainline as a CRM and it still works!
+                - generic [ref=e276]:
+                  - generic [ref=e277]: Amy Chase, PM
+                  - generic [ref=e278]: Mercury Finance
+          - group [ref=e279]:
+            - generic [ref=e281]:
+              - img "Jonas Kotara" [ref=e283]
+              - generic [ref=e284]:
+                - blockquote [ref=e285]: I was able to replace 80% of my team with Mainline bots.
+                - generic [ref=e286]:
+                  - generic [ref=e287]: Jonas Kotara, Lead Engineer
+                  - generic [ref=e288]: Mercury Finance
+          - group [ref=e289]:
+            - generic [ref=e291]:
+              - img "Kevin Yam" [ref=e293]
+              - generic [ref=e294]:
+                - blockquote [ref=e295]: Founder Mode is hard enough without having a really nice PM app.
+                - generic [ref=e296]:
+                  - generic [ref=e297]: Kevin Yam, Founder
+                  - generic [ref=e298]: Mercury Finance
+          - group [ref=e299]:
+            - generic [ref=e301]:
+              - img "Kundo Marta" [ref=e303]
+              - generic [ref=e304]:
+                - blockquote [ref=e305]: I can use the tool as a substitute from my PM.
+                - generic [ref=e306]:
+                  - generic [ref=e307]: Kundo Marta, Founder
+                  - generic [ref=e308]: Mercury Finance
+        - generic [ref=e309]:
+          - button "Previous slide" [ref=e397] [cursor=pointer]
+          - button "Next slide" [ref=e399] [cursor=pointer]
+    - generic [ref=e315]:
+      - generic [ref=e316]:
+        - heading "Got Questions?" [level=2] [ref=e317]
+        - paragraph [ref=e318]:
+          - text: If you can't find what you're looking for,
+          - link "get in touch" [ref=e319] [cursor=pointer]:
+            - /url: /contact
+          - text: .
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - heading "Support" [level=3] [ref=e322]
+          - generic [ref=e323]:
+            - heading [level=3] [ref=e325]:
+              - button "How do I update my account without breaking my laptop?" [ref=e326] [cursor=pointer]
+            - heading [level=3] [ref=e330]:
+              - button "Is support free, or do I need to Google everything?" [ref=e331] [cursor=pointer]
+            - heading [level=3] [ref=e335]:
+              - button "Are you going to be subsumed by AI?" [ref=e336] [cursor=pointer]
+        - generic [ref=e339]:
+          - heading "Your account" [level=3] [ref=e340]
+          - generic [ref=e341]:
+            - heading [level=3] [ref=e343]:
+              - button "Is support free, or do I need to Google everything?" [ref=e344] [cursor=pointer]
+            - heading [level=3] [ref=e348]:
+              - button "Are you going to be subsumed by AI?" [ref=e349] [cursor=pointer]
+        - generic [ref=e352]:
+          - heading "Other questions" [level=3] [ref=e353]
+          - generic [ref=e354]:
+            - heading [level=3] [ref=e356]:
+              - button "Is support free, or do I need to Google everything?" [ref=e357] [cursor=pointer]
+            - heading [level=3] [ref=e361]:
+              - button "Are you going to be subsumed by AI?" [ref=e362] [cursor=pointer]
+  - contentinfo [ref=e365]:
+    - generic [ref=e366]:
+      - heading "Start your free trial today" [level=2] [ref=e367]
+      - paragraph [ref=e368]: Mainline is the fit-for-purpose tool for planning and building modern software products.
+      - link "Get template" [ref=e370] [cursor=pointer]:
+        - /url: https://github.com/shadcnblocks/mainline-nextjs-template
+    - navigation [ref=e371]:
+      - list [ref=e372]:
+        - listitem [ref=e373]:
+          - link "Product" [ref=e374] [cursor=pointer]:
+            - /url: /#feature-modern-teams
+        - listitem [ref=e375]:
+          - link "About Us" [ref=e376] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e377]:
+          - link "FAQ" [ref=e378] [cursor=pointer]:
+            - /url: /faq
+        - listitem [ref=e379]:
+          - link "Contact" [ref=e380] [cursor=pointer]:
+            - /url: /contact
+        - listitem [ref=e381]:
+          - link "Xwitter" [ref=e382] [cursor=pointer]:
+            - /url: https://x.com/ausrobdev
+        - listitem [ref=e386]:
+          - link "LinkedIn" [ref=e387] [cursor=pointer]:
+            - /url: "#"
+      - list [ref=e391]:
+        - listitem [ref=e392]:
+          - link "Privacy Policy" [ref=e393] [cursor=pointer]:
+            - /url: /privacy
+    - img [ref=e395]:
+      - generic [ref=e396]: EVOLUTEK
+  - button "Open Next.js Dev Tools" [ref=e406] [cursor=pointer]
+  - alert [ref=e410]

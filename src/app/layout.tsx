@@ -63,11 +63,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mainline - Modern Next.js Template",
-    template: "%s | Mainline",
+    default: "EVOLUTEK - Tecnología e Industria 4.0",
+    template: "%s | EVOLUTEK",
   },
-  description:
-    "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+  description: "EVOLUTEK - Tecnología e Industria 4.0.",
   keywords: [
     "Next.js",
     "nextjs template",
@@ -102,26 +101,23 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Mainline - Modern Next.js Template",
-    description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
-    siteName: "Mainline",
+    title: "EVOLUTEK - Tecnología e Industria 4.0",
+    description: "EVOLUTEK - Tecnología e Industria 4.0.",
+    siteName: "EVOLUTEK",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mainline - Modern Next.js Template",
+        alt: "EVOLUTEK - Tecnología e Industria 4.0",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mainline - Modern Next.js Template",
-    description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+    title: "EVOLUTEK - Tecnología e Industria 4.0",
+    description: "EVOLUTEK - Tecnología e Industria 4.0.",
     images: ["/og-image.jpg"],
-    creator: "@ausrobdev",
   },
 };
 

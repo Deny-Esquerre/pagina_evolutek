@@ -10,52 +10,52 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    title: "Support",
+    title: "Soluciones",
     questions: [
       {
-        question: "How do I update my account without breaking my laptop?",
+        question: "¿Qué tipo de soluciones ofrece EVOLUTEK?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Automatización industrial, IIoT, Industria 4.0, integración IT/OT, datos industriales y fiscalización de hidrocarburos.",
       },
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "¿En qué industrias trabaja EVOLUTEK?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Oil & Gas, Energía, Minería, Manufactura, Agroindustria e Industria pesquera.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "¿Qué es la integración IT/OT?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Es conectar el mundo de la operación industrial (PLC, SCADA, instrumentación) con los sistemas de información (ERP, BI, cloud) para que los datos fluyan donde generan valor.",
       },
     ],
   },
   {
-    title: "Your account",
+    title: "Tecnología y experiencia",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "¿Con qué plataformas y tecnologías trabaja EVOLUTEK?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Trabajamos con plataformas especializadas en IIoT, historización, DataOps y SCADA como N3uron, Canary, Kepware, HighByte, Flow Software, Tatsoft FrameWorX, Ignition y CygNet, según las necesidades de cada proyecto.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "¿Dónde tiene presencia EVOLUTEK?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Operamos desde Talara, Piura, Perú, con experiencia profesional en proyectos en Perú, Bolivia y Brasil.",
       },
     ],
   },
   {
-    title: "Other questions",
+    title: "Contacto y proyectos",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "¿Cómo empiezo un proyecto con EVOLUTEK?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Escríbenos contándonos el desafío de tu operación y un especialista se pondrá en contacto contigo.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "¿Trabajan con empresas fuera de Perú?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Sí, contamos con experiencia profesional en proyectos en Perú, Bolivia y Brasil.",
       },
     ],
   },
@@ -77,17 +77,17 @@ export const FAQ = ({
           <div className="space-y-4">
             {headerTag === "h1" ? (
               <h1 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                ¿Tienes preguntas?
               </h1>
             ) : (
               <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                ¿Tienes preguntas?
               </h2>
             )}
             <p className="text-muted-foreground max-w-md leading-snug lg:mx-auto">
-              If you can't find what you're looking for,{" "}
+              Si no encuentras lo que buscas,{" "}
               <Link href="/contact" className="underline underline-offset-4">
-                get in touch
+                escríbenos
               </Link>
               .
             </p>

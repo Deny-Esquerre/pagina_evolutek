@@ -19,10 +19,17 @@ const Login = () => {
               <CardHeader className="flex flex-col items-center space-y-0">
                 <Image
                   src="/logo.svg"
-                  alt="logo"
-                  width={94}
-                  height={18}
-                  className="mb-7 dark:invert"
+                  alt="Evolutek"
+                  width={142}
+                  height={36}
+                  className="mb-7 dark:hidden"
+                />
+                <Image
+                  src="/logo-dark.svg"
+                  alt="Evolutek"
+                  width={142}
+                  height={36}
+                  className="mb-7 hidden dark:block"
                 />
                 <p className="mb-2 text-2xl font-bold">Welcome back</p>
                 <p className="text-muted-foreground">

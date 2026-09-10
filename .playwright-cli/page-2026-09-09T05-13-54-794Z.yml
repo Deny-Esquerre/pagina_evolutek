@@ -1,0 +1,277 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Evolutek" [ref=e5]
+    - navigation "Main" [ref=e7]:
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - button "Características" [ref=e11] [cursor=pointer]
+        - listitem [ref=e14]:
+          - link "Nosotros" [ref=e15] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e16]:
+          - link "Preguntas frecuentes" [ref=e17] [cursor=pointer]:
+            - /url: /faq
+        - listitem [ref=e18]:
+          - link "Contacto" [ref=e19] [cursor=pointer]:
+            - /url: /contact
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - heading "Transformamos datos industriales en decisiones inteligentes" [level=1] [ref=e25]
+            - paragraph [ref=e26]: Integramos automatización, IIoT e Industria 4.0 para conectar operaciones, optimizar procesos y acelerar la transformación digital.
+            - generic [ref=e27]:
+              - link "Conoce nuestras soluciones" [ref=e28] [cursor=pointer]:
+                - /url: /#feature-modern-teams
+              - link "Habla con un especialista" [ref=e29] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e30]:
+            - generic [ref=e37]:
+              - heading "Automatización industrial" [level=2] [ref=e38]
+              - paragraph [ref=e39]: PLC, SCADA, HMI e instrumentación integrados.
+            - generic [ref=e44]:
+              - heading "IIoT e Industria 4.0" [level=2] [ref=e45]
+              - paragraph [ref=e46]: Conectividad y datos en tiempo real para tu operación.
+            - generic [ref=e50]:
+              - heading "Integración IT/OT" [level=2] [ref=e51]
+              - paragraph [ref=e52]: Conectamos la operación con los sistemas de información.
+            - generic [ref=e55]:
+              - heading "Datos industriales" [level=2] [ref=e56]
+              - paragraph [ref=e57]: Historización y analítica para decisiones confiables.
+        - img "Plataforma industrial EVOLUTEK" [ref=e60]
+      - generic [ref=e62]:
+        - heading "Automatización, IIoT y datos industriales en un mismo ecosistema. Tecnología especializada para conectar la operación industrial con la inteligencia digital." [level=2] [ref=e64]: Automatización, IIoT y datos industriales en un mismo ecosistema.Tecnología especializada para conectar la operación industrial con la inteligencia digital.
+        - generic [ref=e65]:
+          - generic [ref=e67]:
+            - link [ref=e68] [cursor=pointer]:
+              - /url: https://mercury.com
+              - img "Mercury logo" [ref=e69]
+            - link [ref=e70] [cursor=pointer]:
+              - /url: https://watershed.com
+              - img "Watershed logo" [ref=e71]
+            - link [ref=e72] [cursor=pointer]:
+              - /url: https://retool.com
+              - img "Retool logo" [ref=e73]
+            - link [ref=e74] [cursor=pointer]:
+              - /url: https://descript.com
+              - img "Descript logo" [ref=e75]
+          - generic [ref=e77]:
+            - link [ref=e78] [cursor=pointer]:
+              - /url: https://perplexity.com
+              - img "Perplexity logo" [ref=e79]
+            - link [ref=e80] [cursor=pointer]:
+              - /url: https://monzo.com
+              - img "Monzo logo" [ref=e81]
+            - link [ref=e82] [cursor=pointer]:
+              - /url: https://ramp.com
+              - img "Ramp logo" [ref=e83]
+            - link [ref=e84] [cursor=pointer]:
+              - /url: https://raycast.com
+              - img "Raycast logo" [ref=e85]
+            - link [ref=e86] [cursor=pointer]:
+              - /url: https://arc.com
+              - img "Arc logo" [ref=e87]
+      - generic [ref=e89]:
+        - generic [ref=e90]: AUTOMATIZACIÓN · IIOT · INDUSTRIA 4.0
+        - generic [ref=e94]:
+          - heading "Especialistas en industria, automatización y datos" [level=2] [ref=e95]
+          - paragraph [ref=e96]: Integramos automatización industrial, IIoT, datos e Industria 4.0 para conectar las operaciones industriales con el mundo digital y facilitar decisiones basadas en información confiable.
+        - generic [ref=e98]:
+          - generic [ref=e100]:
+            - img "Automatización industrial interface" [ref=e102]
+            - link [ref=e104] [cursor=pointer]:
+              - /url: "#"
+              - heading "Automatización industrial" [level=3] [ref=e105]
+          - generic [ref=e113]:
+            - img "IIoT y datos industriales interface" [ref=e115]
+            - link [ref=e117] [cursor=pointer]:
+              - /url: "#"
+              - heading "IIoT y datos industriales" [level=3] [ref=e118]
+          - generic [ref=e126]:
+            - img "Integración IT/OT interface" [ref=e128]
+            - link [ref=e130] [cursor=pointer]:
+              - /url: "#"
+              - heading "Integración IT/OT" [level=3] [ref=e131]
+      - generic [ref=e136]:
+        - heading "Del dato a la inteligencia industrial" [level=2] [ref=e137]
+        - generic [ref=e138]:
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - generic [ref=e143]:
+                - heading "Capturamos y conectamos tus datos." [level=3] [ref=e144]
+                - generic [ref=e145]: Sensores, PLC, RTU e instrumentación conectados a tus sistemas de supervisión y control.
+              - img "Issue template interface" [ref=e147]
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - heading "Un ecosistema tecnológico conectado." [level=3] [ref=e152]
+                - generic [ref=e153]: Automatización, IIoT y plataformas de datos trabajando en conjunto.
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - img "Jira logo" [ref=e158]
+                  - img "Excel logo" [ref=e161]
+                  - img "Notion logo" [ref=e164]
+                  - img "Word logo" [ref=e167]
+                - generic [ref=e169]:
+                  - img "Monday logo" [ref=e171]
+                  - img "Google Drive logo" [ref=e174]
+                  - img "Jira logo" [ref=e177]
+                  - img "Asana logo" [ref=e180]
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - heading "Contextualizamos la información." [level=3] [ref=e187]
+                - generic [ref=e188]: Los datos de planta se organizan y enriquecen con contexto operativo.
+              - img "Graveyard interface" [ref=e190]
+            - generic [ref=e193]:
+              - generic [ref=e194]:
+                - heading "Historizamos cada variable." [level=3] [ref=e195]
+                - generic [ref=e196]: Registro histórico de variables, eventos y KPIs de tus procesos.
+              - img "Task discussions interface" [ref=e198]
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - heading "Analizamos y decidimos." [level=3] [ref=e203]
+                - generic [ref=e204]: Analítica y visualización para convertir datos en decisiones.
+              - img "Notifications interface" [ref=e206]
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - heading "Trusted by product builders" [level=2] [ref=e212]
+        - paragraph [ref=e213]: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+        - button "Read our Customer Stories" [ref=e214] [cursor=pointer]
+      - region [ref=e216]:
+        - generic [ref=e218]:
+          - group [ref=e219]:
+            - generic [ref=e221]:
+              - img "Amy Chase" [ref=e223]
+              - generic [ref=e224]:
+                - blockquote [ref=e225]: We're misusing Mainline as a CRM and it still works!
+                - generic [ref=e226]:
+                  - generic [ref=e227]: Amy Chase, PM
+                  - generic [ref=e228]: Mercury Finance
+          - group [ref=e229]:
+            - generic [ref=e231]:
+              - img "Jonas Kotara" [ref=e233]
+              - generic [ref=e234]:
+                - blockquote [ref=e235]: I was able to replace 80% of my team with Mainline bots.
+                - generic [ref=e236]:
+                  - generic [ref=e237]: Jonas Kotara, Lead Engineer
+                  - generic [ref=e238]: Mercury Finance
+          - group [ref=e239]:
+            - generic [ref=e241]:
+              - img "Kevin Yam" [ref=e243]
+              - generic [ref=e244]:
+                - blockquote [ref=e245]: Founder Mode is hard enough without having a really nice PM app.
+                - generic [ref=e246]:
+                  - generic [ref=e247]: Kevin Yam, Founder
+                  - generic [ref=e248]: Mercury Finance
+          - group [ref=e249]:
+            - generic [ref=e251]:
+              - img "Kundo Marta" [ref=e253]
+              - generic [ref=e254]:
+                - blockquote [ref=e255]: I can use the tool as a substitute from my PM.
+                - generic [ref=e256]:
+                  - generic [ref=e257]: Kundo Marta, Founder
+                  - generic [ref=e258]: Mercury Finance
+          - group [ref=e259]:
+            - generic [ref=e261]:
+              - img "Amy Chase" [ref=e263]
+              - generic [ref=e264]:
+                - blockquote [ref=e265]: We're misusing Mainline as a CRM and it still works!
+                - generic [ref=e266]:
+                  - generic [ref=e267]: Amy Chase, PM
+                  - generic [ref=e268]: Mercury Finance
+          - group [ref=e269]:
+            - generic [ref=e271]:
+              - img "Jonas Kotara" [ref=e273]
+              - generic [ref=e274]:
+                - blockquote [ref=e275]: I was able to replace 80% of my team with Mainline bots.
+                - generic [ref=e276]:
+                  - generic [ref=e277]: Jonas Kotara, Lead Engineer
+                  - generic [ref=e278]: Mercury Finance
+          - group [ref=e279]:
+            - generic [ref=e281]:
+              - img "Kevin Yam" [ref=e283]
+              - generic [ref=e284]:
+                - blockquote [ref=e285]: Founder Mode is hard enough without having a really nice PM app.
+                - generic [ref=e286]:
+                  - generic [ref=e287]: Kevin Yam, Founder
+                  - generic [ref=e288]: Mercury Finance
+          - group [ref=e289]:
+            - generic [ref=e291]:
+              - img "Kundo Marta" [ref=e293]
+              - generic [ref=e294]:
+                - blockquote [ref=e295]: I can use the tool as a substitute from my PM.
+                - generic [ref=e296]:
+                  - generic [ref=e297]: Kundo Marta, Founder
+                  - generic [ref=e298]: Mercury Finance
+        - generic [ref=e299]:
+          - button "Previous slide" [ref=e300] [cursor=pointer]
+          - button "Next slide" [ref=e302] [cursor=pointer]
+    - generic [ref=e309]:
+      - generic [ref=e310]:
+        - heading "¿Tienes preguntas?" [level=2] [ref=e311]
+        - paragraph [ref=e312]:
+          - text: Si no encuentras lo que buscas,
+          - link "escríbenos" [ref=e313] [cursor=pointer]:
+            - /url: /contact
+          - text: .
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - heading "Soluciones" [level=3] [ref=e316]
+          - generic [ref=e317]:
+            - heading [level=3] [ref=e319]:
+              - button "¿Qué tipo de soluciones ofrece EVOLUTEK?" [ref=e320] [cursor=pointer]
+            - heading [level=3] [ref=e324]:
+              - button "¿En qué industrias trabaja EVOLUTEK?" [ref=e325] [cursor=pointer]
+            - heading [level=3] [ref=e329]:
+              - button "¿Qué es la integración IT/OT?" [ref=e330] [cursor=pointer]
+        - generic [ref=e333]:
+          - heading "Tecnología y experiencia" [level=3] [ref=e334]
+          - generic [ref=e335]:
+            - heading [level=3] [ref=e337]:
+              - button "¿Con qué plataformas y tecnologías trabaja EVOLUTEK?" [ref=e338] [cursor=pointer]
+            - heading [level=3] [ref=e342]:
+              - button "¿Dónde tiene presencia EVOLUTEK?" [ref=e343] [cursor=pointer]
+        - generic [ref=e346]:
+          - heading "Contacto y proyectos" [level=3] [ref=e347]
+          - generic [ref=e348]:
+            - heading [level=3] [ref=e350]:
+              - button "¿Cómo empiezo un proyecto con EVOLUTEK?" [ref=e351] [cursor=pointer]
+            - heading [level=3] [ref=e355]:
+              - button "¿Trabajan con empresas fuera de Perú?" [ref=e356] [cursor=pointer]
+  - contentinfo [ref=e359]:
+    - generic [ref=e360]:
+      - heading "Start your free trial today" [level=2] [ref=e361]
+      - paragraph [ref=e362]: Mainline is the fit-for-purpose tool for planning and building modern software products.
+      - link "Get template" [ref=e364] [cursor=pointer]:
+        - /url: https://github.com/shadcnblocks/mainline-nextjs-template
+    - navigation [ref=e365]:
+      - list [ref=e366]:
+        - listitem [ref=e367]:
+          - link "Product" [ref=e368] [cursor=pointer]:
+            - /url: /#feature-modern-teams
+        - listitem [ref=e369]:
+          - link "About Us" [ref=e370] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e371]:
+          - link "FAQ" [ref=e372] [cursor=pointer]:
+            - /url: /faq
+        - listitem [ref=e373]:
+          - link "Contact" [ref=e374] [cursor=pointer]:
+            - /url: /contact
+        - listitem [ref=e375]:
+          - link "Xwitter" [ref=e376] [cursor=pointer]:
+            - /url: https://x.com/ausrobdev
+        - listitem [ref=e380]:
+          - link "LinkedIn" [ref=e381] [cursor=pointer]:
+            - /url: "#"
+      - list [ref=e385]:
+        - listitem [ref=e386]:
+          - link "Privacy Policy" [ref=e387] [cursor=pointer]:
+            - /url: /privacy
+    - img [ref=e389]:
+      - generic [ref=e390]: EVOLUTEK
+  - button "Open Next.js Dev Tools" [ref=e396] [cursor=pointer]
+  - alert [ref=e400]

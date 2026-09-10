@@ -6,10 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ChevronRight, Github } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -22,26 +20,25 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   {
-    label: "Features",
+    label: "Características",
     href: "#features",
     dropdownItems: [
       {
-        title: "Modern product teams",
+        title: "Equipos de producto modernos",
         href: "/#feature-modern-teams",
         description:
-          "Mainline is built on the habits that make the best product teams successful",
+          "Evolutek se basa en los hábitos de los mejores equipos de producto",
       },
       {
-        title: "Resource Allocation",
+        title: "Asignación de recursos",
         href: "/#resource-allocation",
-        description: "Mainline your resource allocation and execution",
+        description: "Coordina tu asignación de recursos y ejecución",
       },
     ],
   },
-  { label: "About Us", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Nosotros", href: "/about" },
+  { label: "Preguntas frecuentes", href: "/faq" },
+  { label: "Contacto", href: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -52,23 +49,30 @@ export const Navbar = () => {
   return (
     <section
       className={cn(
-        "bg-background/70 absolute left-1/2 z-50 w-[min(90%,700px)] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300",
-        "top-5 lg:top-12",
+        "bg-background/70 absolute top-5 left-1/2 z-50 w-fit max-w-[90vw] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300 lg:top-12",
       )}
     >
-      <div className="flex items-center justify-between px-6 py-3">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+      <div className="flex items-center gap-x-6 px-6 py-3 lg:gap-x-10">
+        <Link href="/" className="flex w-[150px] shrink-0 items-center">
           <Image
             src="/logo.svg"
-            alt="logo"
-            width={94}
-            height={18}
-            className="dark:invert"
+            alt="Evolutek"
+            width={150}
+            height={38}
+            className="dark:hidden"
+          />
+          <Image
+            src="/logo-dark.svg"
+            alt="Evolutek"
+            width={150}
+            height={38}
+            className="hidden dark:block"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="max-lg:hidden">
+        <div className="max-lg:hidden">
+          <NavigationMenu>
           <NavigationMenuList>
             {ITEMS.map((link) =>
               link.dropdownItems ? (
@@ -116,45 +120,29 @@ export const Navbar = () => {
             )}
           </NavigationMenuList>
         </NavigationMenu>
-
-        {/* Auth Buttons */}
-        <div className="flex items-center gap-2.5">
-          <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
-            <Button variant="outline">
-              <span className="relative z-10">Login</span>
-            </Button>
-          </Link>
-          <a
-            href="https://github.com/shadcnblocks/mainline-nextjs-template"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="size-4" />
-            <span className="sr-only">GitHub</span>
-          </a>
-
-          {/* Hamburger Menu Button (Mobile Only) */}
-          <button
-            className="text-muted-foreground relative flex size-8 lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
-              <span
-                aria-hidden="true"
-                className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "rotate-45" : "-translate-y-1.5"}`}
-              ></span>
-              <span
-                aria-hidden="true"
-                className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "opacity-0" : ""}`}
-              ></span>
-              <span
-                aria-hidden="true"
-                className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "-rotate-45" : "translate-y-1.5"}`}
-              ></span>
-            </div>
-          </button>
         </div>
+
+        {/* Hamburger Menu Button (Mobile Only) */}
+        <button
+          className="text-muted-foreground relative flex size-8 lg:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span className="sr-only">Open main menu</span>
+          <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
+            <span
+              aria-hidden="true"
+              className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "rotate-45" : "-translate-y-1.5"}`}
+            ></span>
+            <span
+              aria-hidden="true"
+              className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "opacity-0" : ""}`}
+            ></span>
+            <span
+              aria-hidden="true"
+              className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? "-rotate-45" : "translate-y-1.5"}`}
+            ></span>
+          </div>
+        </button>
       </div>
 
       {/*  Mobile Menu Navigation */}

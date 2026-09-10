@@ -1,36 +1,30 @@
 import Image from "next/image";
 
-import {
-  ArrowRight,
-  Blend,
-  ChartNoAxesColumn,
-  CircleDot,
-  Diamond,
-} from "lucide-react";
+import { ArrowRight, Cpu, Database, Network, Wifi } from "lucide-react";
 
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    title: "Tailored workflows",
-    description: "Track progress across custom issue flows for your team.",
-    icon: CircleDot,
+    title: "Automatización industrial",
+    description: "PLC, SCADA, HMI e instrumentación integrados.",
+    icon: Cpu,
   },
   {
-    title: "Cross-team projects",
-    description: "Collaborate across teams and departments.",
-    icon: Blend,
+    title: "IIoT e Industria 4.0",
+    description: "Conectividad y datos en tiempo real para tu operación.",
+    icon: Wifi,
   },
   {
-    title: "Milestones",
-    description: "Break projects down into concrete phases.",
-    icon: Diamond,
+    title: "Integración IT/OT",
+    description: "Conectamos la operación con los sistemas de información.",
+    icon: Network,
   },
   {
-    title: "Progress insights",
-    description: "Track scope, velocity, and progress over time.",
-    icon: ChartNoAxesColumn,
+    title: "Datos industriales",
+    description: "Historización y analítica para decisiones confiables.",
+    icon: Database,
   },
 ];
 
@@ -40,19 +34,20 @@ export const Hero = () => {
       <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         {/* Left side - Main content */}
         <div className="flex-1">
-          <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            Mainline Next.js template
+          <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl">
+            Transformamos datos industriales en decisiones inteligentes
           </h1>
 
-          <p className="text-muted-foreground text-1xl mt-5 md:text-3xl">
-            Mainline is an open-source website template built with shadcn/ui,
-            Tailwind 4 & Next.js
+          <p className="text-muted-foreground mt-5 text-base md:text-lg">
+            Integramos automatización, IIoT e Industria 4.0 para conectar
+            operaciones, optimizar procesos y acelerar la transformación
+            digital.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <a href="https://github.com/shadcnblocks/mainline-nextjs-template">
-                Get template
+              <a href="/brochure-evolutek.pdf" download>
+                Ver brochure
               </a>
             </Button>
             <Button
@@ -61,10 +56,10 @@ export const Hero = () => {
               asChild
             >
               <a
-                href="https://shadcnblocks.com"
+                href="/contact"
                 className="max-w-56 truncate text-start md:max-w-none"
               >
-                Built by shadcnblocks.com
+                Contáctanos
                 <ArrowRight className="stroke-3" />
               </a>
             </Button>
@@ -104,7 +99,7 @@ export const Hero = () => {
         <div className="relative h-[793px] w-full">
           <Image
             src="/hero.webp"
-            alt="hero"
+            alt="Plataforma industrial EVOLUTEK"
             fill
             className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
           />
