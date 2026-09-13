@@ -39,22 +39,6 @@ type NodeKey =
   | "llm"
   | "app";
 
-const NODES: NodeKey[] = [
-  "sql",
-  "ts",
-  "erp",
-  "eam",
-  "iot",
-  "mqtt",
-  "opc",
-  "uaf",
-  "uns",
-  "dw",
-  "kafka",
-  "llm",
-  "app",
-];
-
 const EDGES: [NodeKey, NodeKey][] = [
   ["sql", "uaf"],
   ["ts", "uaf"],

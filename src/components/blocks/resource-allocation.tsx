@@ -7,12 +7,12 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 import { DashedLine } from "../dashed-line";
-
-import { cn } from "@/lib/utils";
 import { ScaledAlarmsMockup } from "./alarms-mockup";
 import { ScaledChatMockup } from "./chat-mockup";
 import { ScaledModalActivo } from "./modal-activo-mockup";
 import { ScaledTicketsMockup } from "./tickets-mockup";
+
+import { cn } from "@/lib/utils";
 
 interface AllocationImage {
   src: string;
