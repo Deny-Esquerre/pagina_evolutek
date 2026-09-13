@@ -1,9 +1,8 @@
-import Image from "next/image";
-
 import { ArrowRight, Cpu, Database, Network, Wifi } from "lucide-react";
 
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
+import { ScaledUnsDiagram } from "@/components/blocks/uns-architecture-diagram";
 
 const features = [
   {
@@ -12,7 +11,7 @@ const features = [
     icon: Cpu,
   },
   {
-    title: "IIoT e Industria 4.0",
+    title: "IoT e Industria 4.0",
     description: "Conectividad y datos en tiempo real para tu operación.",
     icon: Wifi,
   },
@@ -39,7 +38,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-muted-foreground mt-5 text-base md:text-lg">
-            Integramos automatización, IIoT e Industria 4.0 para conectar
+            Integramos automatización, IoT e Industria 4.0 para conectar
             operaciones, optimizar procesos y acelerar la transformación
             digital.
           </p>
@@ -56,7 +55,7 @@ export const Hero = () => {
               asChild
             >
               <a
-                href="/contact"
+                href="/contacto"
                 className="max-w-56 truncate text-start md:max-w-none"
               >
                 Contáctanos
@@ -95,15 +94,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
-        <div className="relative h-[793px] w-full">
-          <Image
-            src="/hero.webp"
-            alt="Plataforma industrial EVOLUTEK"
-            fill
-            className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
-          />
-        </div>
+      <div className="mt-12 md:mt-20 lg:container lg:mt-24">
+        <ScaledUnsDiagram />
       </div>
     </section>
   );

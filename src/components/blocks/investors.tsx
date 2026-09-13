@@ -1,30 +1,21 @@
-import Image from "next/image";
-
-const investors = [
+const highlights = [
   {
-    name: "Dennis Bouvard",
-    company: "Blackbird Ventures",
-    image: "/investors/1.webp",
+    value: "🥉 3.er puesto",
+    label: "DEMO Contest LATAM 2026",
+    detail:
+      "Reconocimiento obtenido en el concurso relacionado con Canary, comunicado por Vertix Technologies.",
   },
   {
-    name: "Renatus Gerard",
-    company: "Center Studies",
-    image: "/investors/2.webp",
+    value: "Más de 25 años",
+    label: "Experiencia profesional acumulada",
+    detail:
+      "Experiencia acumulada de nuestros profesionales en automatización, industria y transformación digital.",
   },
   {
-    name: "Leslie Alexander",
-    company: "TechNexus",
-    image: "/investors/3.webp",
-  },
-  {
-    name: "Matthew Stephens",
-    company: "Etymol Cap",
-    image: "/investors/4.webp",
-  },
-  {
-    name: "Josephine Newman",
-    company: "Vandenberg",
-    image: "/investors/5.webp",
+    value: "Perú · Bolivia · Brasil",
+    label: "Presencia internacional",
+    detail:
+      "Experiencia y proyectos desarrollados en la región andina y latinoamericana.",
   },
 ];
 
@@ -32,20 +23,21 @@ export function Investors() {
   return (
     <section className="container max-w-5xl py-12">
       <h2 className="text-foreground text-4xl font-medium tracking-wide">
-        Our investors
+        Experiencia y reconocimiento
       </h2>
-      <div className="mt-8 grid grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {investors.map((investor) => (
-          <div key={investor.name} className="">
-            <Image
-              src={investor.image}
-              alt={investor.name}
-              width={120}
-              height={120}
-              className="object-cover"
-            />
-            <h3 className="mt-3 font-semibold">{investor.name}</h3>
-            <p className="text-muted-foreground">{investor.company}</p>
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {highlights.map((highlight) => (
+          <div
+            key={highlight.label}
+            className="rounded-2xl border bg-background p-6"
+          >
+            <h3 className="font-display text-2xl font-semibold">
+              {highlight.value}
+            </h3>
+            <p className="mt-2 font-semibold">{highlight.label}</p>
+            <p className="mt-1 text-sm leading-snug text-muted-foreground">
+              {highlight.detail}
+            </p>
           </div>
         ))}
       </div>

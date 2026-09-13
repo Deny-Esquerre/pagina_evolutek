@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import Marquee from "react-fast-marquee";
@@ -10,76 +10,62 @@ type Company = {
   logo: string;
   width: number;
   height: number;
-  href: string;
+  href?: string;
+  surface?: "dark";
 };
 
 export const Logos = () => {
-  const topRowCompanies = [
+  const topRowCompanies: Company[] = [
     {
-      name: "Mercury",
-      logo: "/logos/mercury.svg",
-      width: 143,
-      height: 26,
-      href: "https://mercury.com",
+      name: "N3uron",
+      logo: "/logos/Logotype-orange-n3uron.svg",
+      width: 120,
+      height: 36,
+      href: "https://n3uron.com",
     },
     {
-      name: "Watershed",
-      logo: "/logos/watershed.svg",
-      width: 154,
-      height: 31,
-      href: "https://watershed.com",
+      name: "Canary",
+      logo: "/logos/CanaryLabs_Logo.svg",
+      width: 132,
+      height: 42,
+      href: "https://canarylabs.com",
     },
     {
-      name: "Retool",
-      logo: "/logos/retool.svg",
-      width: 113,
-      height: 22,
-      href: "https://retool.com",
+      name: "Kepware",
+      logo: "/logos/Wepware_Logo.png",
+      width: 150,
+      height: 37,
+      href: "https://www.kepware.com",
     },
     {
-      name: "Descript",
-      logo: "/logos/descript.svg",
-      width: 112,
-      height: 27,
-      href: "https://descript.com",
+      name: "Tatsoft",
+      logo: "/logos/Tatsoft Logo.png",
+      width: 150,
+      height: 30,
     },
   ];
 
-  const bottomRowCompanies = [
+  const bottomRowCompanies: Company[] = [
     {
-      name: "Perplexity",
-      logo: "/logos/perplexity.svg",
-      width: 141,
-      height: 32,
-      href: "https://perplexity.com",
+      name: "HighByte",
+      logo: "/logos/Highbite_Logo.webp",
+      width: 100,
+      height: 26,
+      href: "https://highbyte.com",
     },
     {
-      name: "Monzo",
-      logo: "/logos/monzo.svg",
-      width: 104,
-      height: 18,
-      href: "https://monzo.com",
+      name: "Flow Software",
+      logo: "/logos/flowsoftware_Logo.png",
+      width: 120,
+      height: 44,
+      surface: "dark",
     },
     {
-      name: "Ramp",
-      logo: "/logos/ramp.svg",
-      width: 105,
-      height: 28,
-      href: "https://ramp.com",
-    },
-    {
-      name: "Raycast",
-      logo: "/logos/raycast.svg",
-      width: 128,
-      height: 33,
-      href: "https://raycast.com",
-    },
-    {
-      name: "Arc",
-      logo: "/logos/arc.svg",
-      width: 90,
-      height: 28,
-      href: "https://arc.com",
+      name: "Ignition",
+      logo: "/logos/IgnitionLogo.png",
+      width: 140,
+      height: 60,
+      href: "https://inductiveautomation.com",
     },
   ];
 
@@ -88,7 +74,7 @@ export const Logos = () => {
       <div className="container space-y-10 lg:space-y-16">
         <div className="text-center">
           <h2 className="mb-4 text-xl text-balance md:text-2xl lg:text-3xl">
-            Automatización, IIoT y datos industriales en un mismo ecosistema.
+            Automatización, IoT y datos industriales en un mismo ecosistema.
             <br className="max-md:hidden" />
             <span className="text-muted-foreground">
               Tecnología especializada para conectar la operación industrial
@@ -101,10 +87,10 @@ export const Logos = () => {
           {/* Top row - 4 logos */}
           <LogoRow companies={topRowCompanies} gridClassName="grid-cols-4" />
 
-          {/* Bottom row - 5 logos */}
+          {/* Bottom row - 3 logos */}
           <LogoRow
             companies={bottomRowCompanies}
-            gridClassName="grid-cols-5"
+            gridClassName="grid-cols-3"
             direction="right"
           />
         </div>
@@ -130,17 +116,28 @@ const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
             gridClassName,
           )}
         >
-          {companies.map((company, index) => (
-            <Link href={company.href} target="_blank" key={index}>
+          {companies.map((company, index) => {
+            const img = (
               <Image
                 src={company.logo}
                 alt={`${company.name} logo`}
                 width={company.width}
                 height={company.height}
-                className="dark:opacity/100 object-contain opacity-50 transition-opacity hover:opacity-70 dark:invert"
+                className={cn(
+                  "object-contain opacity-70 grayscale transition-[filter,opacity] duration-300 hover:opacity-100 hover:grayscale-0",
+                  company.surface === "dark" &&
+                    "rounded-md bg-neutral-800 p-3 opacity-80 grayscale",
+                )}
               />
-            </Link>
-          ))}
+            );
+            return company.href ? (
+              <Link href={company.href} target="_blank" key={index}>
+                {img}
+              </Link>
+            ) : (
+              <span key={index}>{img}</span>
+            );
+          })}
         </div>
       </div>
 
@@ -148,20 +145,39 @@ const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
       <div className="md:hidden">
         <Marquee direction={direction} pauseOnHover>
           {companies.map((company, index) => (
-            <Link
-              href={company.href}
-              target="_blank"
-              key={index}
-              className="mx-8 inline-block transition-opacity hover:opacity-70"
-            >
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
-                className="object-contain"
-              />
-            </Link>
+            <span key={index} className="mx-8 inline-block">
+              {company.href ? (
+                <Link
+                  href={company.href}
+                  target="_blank"
+                  className="transition-opacity hover:opacity-100"
+                >
+                  <Image
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    width={company.width}
+                    height={company.height}
+                    className={cn(
+                      "object-contain opacity-70 grayscale transition-[filter,opacity] duration-300 hover:grayscale-0",
+                      company.surface === "dark" &&
+                        "rounded-md bg-neutral-800 p-3 opacity-80 grayscale",
+                    )}
+                  />
+                </Link>
+              ) : (
+                <Image
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  width={company.width}
+                  height={company.height}
+                  className={cn(
+                    "object-contain opacity-70 grayscale transition-[filter,opacity] duration-300 hover:grayscale-0",
+                    company.surface === "dark" &&
+                      "rounded-md bg-neutral-800 p-3 opacity-80 grayscale",
+                  )}
+                />
+              )}
+            </span>
           ))}
         </Marquee>
       </div>

@@ -32,7 +32,7 @@ export default function NotFound() {
               size="lg"
               className="min-w-[200px]"
             >
-              <Link href="/contact">Contact Support</Link>
+              <Link href="/contacto">Contactar soporte</Link>
             </Button>
           </div>
         </div>

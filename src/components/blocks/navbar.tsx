@@ -36,9 +36,9 @@ const ITEMS = [
       },
     ],
   },
-  { label: "Nosotros", href: "/about" },
-  { label: "Preguntas frecuentes", href: "/faq" },
-  { label: "Contacto", href: "/contact" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export const Navbar = () => {
@@ -49,23 +49,23 @@ export const Navbar = () => {
   return (
     <section
       className={cn(
-        "bg-background/70 absolute top-5 left-1/2 z-50 w-fit max-w-[90vw] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300 lg:top-12",
+        "bg-background/70 fixed top-5 left-1/2 z-50 w-fit max-w-[90vw] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300 lg:top-12",
       )}
     >
       <div className="flex items-center gap-x-6 px-6 py-3 lg:gap-x-10">
-        <Link href="/" className="flex w-[150px] shrink-0 items-center">
+        <Link href="/" className="flex w-[190px] shrink-0 items-center">
           <Image
             src="/logo.svg"
             alt="Evolutek"
-            width={150}
-            height={38}
+            width={190}
+            height={48}
             className="dark:hidden"
           />
           <Image
             src="/logo-dark.svg"
             alt="Evolutek"
-            width={150}
-            height={38}
+            width={190}
+            height={48}
             className="hidden dark:block"
           />
         </Link>

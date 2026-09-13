@@ -2,20 +2,20 @@ import { DashedLine } from "@/components/dashed-line";
 
 const stats = [
   {
-    value: "$150M",
-    label: "Raised",
+    value: "+25",
+    label: "Años de experiencia profesional acumulada",
   },
   {
-    value: "20K",
-    label: "Companies",
+    value: "3",
+    label: "Países: Perú, Bolivia y Brasil",
   },
   {
-    value: "1.3B",
-    label: "Monthly transactions",
+    value: "8",
+    label: "Tecnologías industriales integradas",
   },
   {
-    value: "1.5K",
-    label: "Connections per minute",
+    value: "3.er",
+    label: "Puesto — DEMO Contest LATAM 2026",
   },
 ];
 
@@ -25,27 +25,29 @@ export function AboutHero() {
       <div className="container flex max-w-5xl flex-col justify-between gap-8 md:gap-20 lg:flex-row lg:items-center lg:gap-24 xl:gap-24">
         <div className="flex-[1.5]">
           <h1 className="text-3xl tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            Democratising quality software
+            Tecnología industrial para operaciones más conectadas e inteligentes
           </h1>
 
           <p className="text-muted-foreground mt-5 text-2xl md:text-3xl lg:text-4xl">
-            Mainline is bringing modern software to life with AI magic.
+            Conectamos la operación industrial con la inteligencia digital.
           </p>
 
           <p className="text-muted-foreground mt-8 hidden max-w-lg space-y-6 text-lg text-balance md:block lg:mt-12">
-            At Mainline, we are dedicated to transforming the way teams plan,
-            execute, and deliver projects. Our mission is to provide our
-            customers with an unbeatable edge over delays, inefficiencies, and
-            disorganisation through actionable insights and seamless
-            collaboration. We’ll stop at nothing to give you the tools you need
-            to get every project across the finish line.
+            EVOLUTEK SRL integra automatización industrial, IoT, datos e
+            Industria 4.0 para conectar las operaciones industriales con el
+            mundo digital, mejorar la visibilidad de los procesos y facilitar
+            decisiones basadas en información confiable.
             <br />
             <br />
-            We’re customer-obsessed — investing the time to understand every
-            aspect of your workflow so that we can help you operate better than
-            ever before. We’re all in this together because your success is our
-            success. In our history as a company, we’ve never lost a customer,
-            because when your projects succeed, so do we.
+            Nuestra especialización une el mundo de la operación (OT) con las
+            tecnologías de información (IT): capturamos, integramos,
+            contextualizamos, historizamos, visualizamos y analizamos los datos
+            que generan los procesos industriales.
+            <br />
+            <br />
+            Somos un equipo con más de 25 años de experiencia profesional
+            acumulada en automatización, industria y transformación digital,
+            con presencia en Perú, Bolivia y Brasil.
           </p>
         </div>
 

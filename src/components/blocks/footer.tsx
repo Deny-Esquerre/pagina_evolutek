@@ -8,16 +8,16 @@ import { Button } from "@/components/ui/button";
 export function Footer() {
   const navigation = [
     { name: "Características", href: "/#features" },
-    { name: "Nosotros", href: "/about" },
-    { name: "Preguntas frecuentes", href: "/faq" },
-    { name: "Contacto", href: "/contact" },
+    { name: "Nosotros", href: "/nosotros" },
+    { name: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
+    { name: "Contacto", href: "/contacto" },
   ];
 
   const social = [
     { name: "LinkedIn", href: "https://pe.linkedin.com/company/evolutek-srl" },
   ];
 
-  const legal = [{ name: "Privacy Policy", href: "/privacy" }];
+  const legal = [{ name: "Política de privacidad", href: "/privacidad" }];
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
@@ -26,13 +26,13 @@ export function Footer() {
           Hablemos de tu proyecto
         </h2>
         <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-          Integramos automatización industrial, IIoT, datos e Industria 4.0
+          Integramos automatización industrial, IoT, datos e Industria 4.0
           para conectar tus operaciones con el mundo digital y facilitar
           decisiones basadas en información confiable.
         </p>
         <div>
           <Button size="lg" className="mt-4" asChild>
-            <Link href="/contact">Cuéntanos el desafío de tu operación</Link>
+            <Link href="/contacto">Cuéntanos el desafío de tu operación</Link>
           </Button>
         </div>
       </div>
