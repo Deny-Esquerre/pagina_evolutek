@@ -45,6 +45,7 @@ next-env.d.ts
 .playwright-cli/
 **/.playwright-cli/
 devserver.log
+build.log
 
 # downloaded page artifacts
 public/logos/EVOLUTEK - Tecnología e Industria 4.0.html
