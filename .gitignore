@@ -40,3 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .qodo
+
+# playwright + dev artifacts
+.playwright-cli/
+**/.playwright-cli/
+devserver.log
+
+# downloaded page artifacts
+public/logos/EVOLUTEK - Tecnología e Industria 4.0.html
+public/logos/EVOLUTEK - Tecnología e Industria 4.0_files/
