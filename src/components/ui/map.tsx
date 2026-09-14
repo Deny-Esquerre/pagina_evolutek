@@ -649,6 +649,7 @@ function MarkerPopup({
   const popup = useMemo(() => {
     const popupInstance = new MapLibreGL.Popup({
       offset: 16,
+      closeOnClick: false,
       ...popupOptions,
       closeButton: false,
     })
