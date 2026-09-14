@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+
+import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -89,8 +93,12 @@ export function ImageSection({ images, className }: ImageSectionProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       {images.map((image, index) => (
-        <div
+        <motion.div
           key={index}
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
           className="relative aspect-[2/1.5] overflow-hidden rounded-2xl"
         >
           <Image
@@ -99,7 +107,7 @@ export function ImageSection({ images, className }: ImageSectionProps) {
             fill
             className="object-cover"
           />
-        </div>
+        </motion.div>
       ))}
     </div>
   );
@@ -120,7 +128,13 @@ export function TextSection({
   ctaButton,
 }: TextSectionProps) {
   return (
-    <section className="flex-1 space-y-4 text-lg md:space-y-6">
+    <motion.section
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="flex-1 space-y-4 text-lg md:space-y-6"
+    >
       {title && <h2 className="text-foreground text-4xl">{title}</h2>}
       <div className="text-muted-foreground max-w-xl space-y-6">
         {paragraphs.map((paragraph, index) => (
@@ -134,6 +148,6 @@ export function TextSection({
           </Link>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }

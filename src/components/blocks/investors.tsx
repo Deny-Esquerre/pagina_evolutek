@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 const highlights = [
   {
     value: "🥉 3.er puesto",
@@ -22,13 +26,28 @@ const highlights = [
 export function Investors() {
   return (
     <section className="container max-w-5xl py-12">
-      <h2 className="text-foreground text-4xl font-medium tracking-wide">
+      <motion.h2
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-foreground text-4xl font-medium tracking-wide"
+      >
         Experiencia y reconocimiento
-      </h2>
+      </motion.h2>
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {highlights.map((highlight) => (
-          <div
+        {highlights.map((highlight, index) => (
+          <motion.div
             key={highlight.label}
+            initial={{ opacity: 0, y: 28, scale: 0.92 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 140,
+              damping: 15,
+              delay: index * 0.12,
+            }}
             className="rounded-2xl border bg-background p-6"
           >
             <h3 className="font-display text-2xl font-semibold">
@@ -38,7 +57,7 @@ export function Investors() {
             <p className="mt-1 text-sm leading-snug text-muted-foreground">
               {highlight.detail}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
