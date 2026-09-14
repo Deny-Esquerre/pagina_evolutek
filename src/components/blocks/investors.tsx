@@ -23,25 +23,11 @@ const highlights = [
       "Experiencia acumulada de nuestros profesionales en automatización, industria y transformación digital.",
   },
   {
-    value: (
-      <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
-        {countries.map((country, i) => (
-          <span key={country.code} className="inline-flex items-center gap-2">
-            {i > 0 && <span className="text-muted-foreground">·</span>}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/flags/${country.code}.svg`}
-              alt=""
-              className="h-4 w-auto rounded-[2px] shadow-sm"
-            />
-            {country.name}
-          </span>
-        ))}
-      </span>
-    ),
+    value: "Perú · Bolivia · Brasil",
     label: "Presencia internacional",
     detail:
       "Experiencia y proyectos desarrollados en la región andina y latinoamericana.",
+    flags: countries,
   },
 ];
 
@@ -81,6 +67,20 @@ export function Investors() {
             >
               {highlight.value}
             </h3>
+            {highlight.flags && (
+              <div className="mt-3 flex items-center gap-3">
+                {highlight.flags.map((country) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={country.code}
+                    src={`/flags/${country.code}.svg`}
+                    alt={country.name}
+                    title={country.name}
+                    className="h-5 w-auto rounded-[2px] shadow-sm"
+                  />
+                ))}
+              </div>
+            )}
             <p className="mt-2 font-semibold">{highlight.label}</p>
             <p className="mt-1 text-sm leading-snug text-muted-foreground">
               {highlight.detail}
