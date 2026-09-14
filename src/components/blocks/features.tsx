@@ -29,13 +29,8 @@ export const Features = () => {
   return (
     <section id="feature-modern-teams" className="pb-28 lg:pb-32">
       <div className="container">
-        {/* Top dashed line with text */}
-        <div className="relative flex items-center justify-center">
-          <DashedLine className="text-muted-foreground" />
-          <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
-            AUTOMATIZACIÓN · IOT · INDUSTRIA 4.0
-          </span>
-        </div>
+        {/* Top dashed line */}
+        <DashedLine className="text-muted-foreground" />
 
         {/* Content */}
         <motion.div
