@@ -1,18 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FaTiktok } from "react-icons/fa6";
 
 import { ContactMap } from "@/components/blocks/contact-map";
-import { FooterWordmark } from "@/components/blocks/footer-wordmark";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
-  const navigation = [
-    { name: "Características", href: "/#features" },
+  const footerLinks = [
     { name: "Nosotros", href: "/nosotros" },
     { name: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
     { name: "Contacto", href: "/contacto" },
+    { name: "Política de privacidad", href: "/privacidad" },
   ];
 
   const socialLinks = [
@@ -26,8 +27,6 @@ export function Footer() {
     { name: "TikTok", href: "#", icon: FaTiktok },
     { name: "Instagram", href: "#", icon: Instagram },
   ];
-
-  const legal = [{ name: "Política de privacidad", href: "/privacidad" }];
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
@@ -64,35 +63,53 @@ export function Footer() {
         </div>
       </div>
 
-      <nav className="container flex flex-col items-center gap-4">
-        <ul className="flex flex-wrap items-center justify-center gap-6">
-          {navigation.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="font-medium transition-opacity hover:opacity-75"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ul className="flex flex-wrap items-center justify-center gap-6">
-          {legal.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="text-muted-foreground text-sm transition-opacity hover:opacity-75"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="w-full border-t">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="flex flex-col items-center justify-start py-12">
+            <Image
+              src="/evolutek-wordmark.svg"
+              alt="Evolutek"
+              width={1570}
+              height={230}
+              className="h-9 w-auto"
+            />
 
-      <div className="mt-10 w-full md:mt-14 lg:mt-20">
-        <FooterWordmark />
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-4">
+              {footerLinks.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Separator />
+
+          <div className="flex flex-col-reverse items-center justify-between gap-x-2 gap-y-5 px-6 py-8 sm:flex-row xl:px-0">
+            <span className="text-muted-foreground text-sm">
+              &copy; {new Date().getFullYear()} EVOLUTEK S.R.L. Todos los
+              derechos reservados.
+            </span>
+
+            <div className="text-muted-foreground flex items-center gap-5">
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-label={item.name}
+                  className="hover:text-foreground transition-colors"
+                >
+                  <item.icon className="size-5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
