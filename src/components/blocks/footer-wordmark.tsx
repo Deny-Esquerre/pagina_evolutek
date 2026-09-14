@@ -13,6 +13,8 @@ const CELL_HEIGHT = VIEW_HEIGHT / ROWS;
 const REVEAL_WINDOW = 0.9;
 const CELL_DURATION = 0.38;
 const BEAM_DURATION = REVEAL_WINDOW + CELL_DURATION + 0.15;
+const SLIDE_DURATION = BEAM_DURATION;
+const SLIDE_OFFSET = 90;
 
 // Integer-only linear congruential generator: server (Node) and client
 // (browser) V8 builds can round transcendental functions like Math.sin
@@ -111,7 +113,11 @@ export function FooterWordmark() {
         </mask>
       </defs>
 
-      <g mask="url(#wordmark-pixel-mask)">
+      <g
+        key={`content-${revealKey}`}
+        mask="url(#wordmark-pixel-mask)"
+        className="wordmark-slide-in"
+      >
         <g transform="translate(162 0)">
           <g transform="translate(14.286 -1.071) scale(1.785714)">
             <circle cx="62" cy="65" r="56" fill="url(#evolutek-wordmark-mark)" />
@@ -194,6 +200,18 @@ export function FooterWordmark() {
             opacity: 1;
           }
         }
+        .wordmark-slide-in {
+          transform: translateX(-${SLIDE_OFFSET}px);
+          animation: wordmark-slide-in ${SLIDE_DURATION}s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+        }
+        @keyframes wordmark-slide-in {
+          from {
+            transform: translateX(-${SLIDE_OFFSET}px);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
         .wordmark-scan-beam {
           opacity: 0;
           animation: wordmark-scan-sweep ${BEAM_DURATION}s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
@@ -218,6 +236,10 @@ export function FooterWordmark() {
           .wordmark-pixel-cell {
             animation: none;
             opacity: 1;
+          }
+          .wordmark-slide-in {
+            animation: none;
+            transform: none;
           }
           .wordmark-scan-beam {
             animation: none;

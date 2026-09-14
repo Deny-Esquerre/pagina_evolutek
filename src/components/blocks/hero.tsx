@@ -152,7 +152,7 @@ export const Hero = () => {
             type="button"
             size="icon-sm"
             variant="outline"
-            className="bg-background absolute top-4 right-4 z-40 shadow-md"
+            className="bg-background absolute -top-12 right-0 z-40 shadow-md"
             aria-label={
               diagramExpanded ? "Contraer diagrama" : "Expandir diagrama"
             }
