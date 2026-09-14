@@ -130,19 +130,7 @@ const FAQ = () => {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 sm:py-20">
-      <div className="lg:grid lg:grid-cols-[280px_1fr] lg:items-start lg:gap-12 xl:grid-cols-[320px_1fr] xl:gap-16">
-        {/* Technician photo */}
-        <div className="hidden lg:block">
-          <div className="sticky top-24">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/team/evolutek-tecnico.png"
-              alt="Técnico de EVOLUTEK"
-              className="mx-auto w-full max-w-xs"
-            />
-          </div>
-        </div>
-
+      <div className="lg:grid lg:grid-cols-[1fr_280px] lg:items-start lg:gap-12 xl:grid-cols-[1fr_320px] xl:gap-16">
         <div>
           <h2 className="text-balance text-center font-medium text-4xl tracking-[-0.04em] sm:text-[2.75rem]">
             Preguntas frecuentes
@@ -189,6 +177,23 @@ const FAQ = () => {
                 <FAQList faqs={activeFaqs ?? []} />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Technician photo */}
+        <div className="hidden lg:block">
+          <div className="sticky top-24">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/team/evolutek-tecnico.png"
+              alt="Técnico de EVOLUTEK"
+              className="mx-auto w-full max-w-xs"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, black 70%, transparent 100%)",
+              }}
+            />
           </div>
         </div>
       </div>
