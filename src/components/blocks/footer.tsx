@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowUpRight } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { FaTiktok } from "react-icons/fa6";
 
 import { ContactMap } from "@/components/blocks/contact-map";
 import { Button } from "@/components/ui/button";
@@ -14,8 +15,16 @@ export function Footer() {
     { name: "Contacto", href: "/contacto" },
   ];
 
-  const social = [
-    { name: "LinkedIn", href: "https://pe.linkedin.com/company/evolutek-srl" },
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://pe.linkedin.com/company/evolutek-srl",
+      icon: Linkedin,
+    },
+    { name: "Facebook", href: "#", icon: Facebook },
+    { name: "YouTube", href: "#", icon: Youtube },
+    { name: "TikTok", href: "#", icon: FaTiktok },
+    { name: "Instagram", href: "#", icon: Instagram },
   ];
 
   const legal = [{ name: "Política de privacidad", href: "/privacidad" }];
@@ -37,6 +46,18 @@ export function Footer() {
               <Link href="/contacto">Cuéntanos el desafío de tu operación</Link>
             </Button>
           </div>
+          <div className="flex items-center justify-center gap-4 pt-2 lg:justify-start">
+            {socialLinks.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                aria-label={item.name}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <item.icon className="size-5" />
+              </Link>
+            ))}
+          </div>
         </div>
         <div className="h-72 w-full overflow-hidden rounded-2xl border shadow-sm sm:h-80 lg:h-96">
           <ContactMap />
@@ -52,16 +73,6 @@ export function Footer() {
                 className="font-medium transition-opacity hover:opacity-75"
               >
                 {item.name}
-              </Link>
-            </li>
-          ))}
-          {social.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="flex items-center gap-0.5 font-medium transition-opacity hover:opacity-75"
-              >
-                {item.name} <ArrowUpRight className="size-4" />
               </Link>
             </li>
           ))}

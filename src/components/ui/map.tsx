@@ -631,12 +631,15 @@ type MarkerPopupProps = {
   className?: string;
   /** Show a close button in the popup (default: false) */
   closeButton?: boolean;
+  /** Show the popup immediately, without waiting for a marker click (default: false) */
+  open?: boolean;
 } & Omit<PopupOptions, "className" | "closeButton">;
 
 function MarkerPopup({
   children,
   className,
   closeButton = false,
+  open = false,
   ...popupOptions
 }: MarkerPopupProps) {
   const { marker, map } = useMarkerContext();
@@ -662,11 +665,18 @@ function MarkerPopup({
     popup.setDOMContent(container);
     marker.setPopup(popup);
 
+    // Open it right away instead of waiting for a click. Added straight to
+    // the map (not via marker.togglePopup) so it doesn't depend on the
+    // marker's own "added to map" effect having already run.
+    if (open && !popup.isOpen()) {
+      popup.setLngLat(marker.getLngLat()).addTo(map);
+    }
+
     return () => {
       marker.setPopup(null);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, open]);
 
   // Sync popup options when they change.
   useEffect(() => {
