@@ -11,12 +11,16 @@ const ROWS = 8;
 const CELL_WIDTH = VIEW_WIDTH / COLS;
 const CELL_HEIGHT = VIEW_HEIGHT / ROWS;
 const REVEAL_WINDOW = 0.9;
+const CELL_DURATION = 0.38;
+const BEAM_DURATION = REVEAL_WINDOW + CELL_DURATION + 0.15;
 
-// Deterministic pseudo-random so the reveal order is identical on the
-// server-rendered and client-hydrated markup.
+// Integer-only linear congruential generator: server (Node) and client
+// (browser) V8 builds can round transcendental functions like Math.sin
+// slightly differently, which broke hydration when it was used here for a
+// "deterministic" delay. Plain integer multiply/mod/divide is exact on both.
 function pseudoRandom(seed: number) {
-  const x = Math.sin(seed * 12.9898) * 43758.5453;
-  return x - Math.floor(x);
+  const state = (seed * 9301 + 49297) % 233280;
+  return state / 233280;
 }
 
 const CELLS = Array.from({ length: COLS * ROWS }, (_, index) => ({
@@ -64,6 +68,26 @@ export function FooterWordmark() {
           <stop offset="0" stopColor="currentColor" />
           <stop offset="1" stopColor="#4A4CB8" stopOpacity="0.41" />
         </linearGradient>
+        <linearGradient
+          id="wordmark-scan-gradient"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="0"
+        >
+          <stop offset="0%" stopColor="#CDE0FF" stopOpacity="0" />
+          <stop offset="50%" stopColor="#EAF2FF" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#CDE0FF" stopOpacity="0" />
+        </linearGradient>
+        <filter
+          id="wordmark-scan-blur"
+          x="-100%"
+          y="-100%"
+          width="300%"
+          height="300%"
+        >
+          <feGaussianBlur stdDeviation="14" />
+        </filter>
         <mask
           key={revealKey}
           id="wordmark-pixel-mask"
@@ -78,7 +102,10 @@ export function FooterWordmark() {
               height={CELL_HEIGHT + 0.75}
               fill="#ffffff"
               className="wordmark-pixel-cell"
-              style={{ animationDelay: `${cell.delay}s` }}
+              style={{
+                animationDelay: `${cell.delay}s`,
+                animationDuration: `${CELL_DURATION}s`,
+              }}
             />
           ))}
         </mask>
@@ -125,22 +152,76 @@ export function FooterWordmark() {
             EVOLUTEK
           </text>
         </g>
+
+        {/* Technological scanning beam sweeping over the mark as it assembles */}
+        <rect
+          key={`beam-${revealKey}`}
+          x={-260}
+          y={-40}
+          width={220}
+          height={VIEW_HEIGHT + 80}
+          fill="url(#wordmark-scan-gradient)"
+          filter="url(#wordmark-scan-blur)"
+          className="wordmark-scan-beam"
+          style={{ mixBlendMode: "screen" }}
+        />
       </g>
 
       <style>{`
         .wordmark-pixel-cell {
           opacity: 0;
-          animation: wordmark-pixel-reveal 0.05s ease-out forwards;
+          animation-name: wordmark-pixel-reveal;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
         }
         @keyframes wordmark-pixel-reveal {
-          to {
+          0% {
+            opacity: 0;
+          }
+          22% {
             opacity: 1;
+          }
+          38% {
+            opacity: 0.1;
+          }
+          55% {
+            opacity: 1;
+          }
+          70% {
+            opacity: 0.3;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        .wordmark-scan-beam {
+          opacity: 0;
+          animation: wordmark-scan-sweep ${BEAM_DURATION}s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+        }
+        @keyframes wordmark-scan-sweep {
+          0% {
+            transform: translateX(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          88% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(${VIEW_WIDTH + 260}px);
+            opacity: 0;
           }
         }
         @media (prefers-reduced-motion: reduce) {
           .wordmark-pixel-cell {
             animation: none;
             opacity: 1;
+          }
+          .wordmark-scan-beam {
+            animation: none;
+            opacity: 0;
           }
         }
       `}</style>
