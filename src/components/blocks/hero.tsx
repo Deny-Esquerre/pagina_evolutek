@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 
 import {
   ArrowRight,
@@ -48,6 +48,18 @@ export const Hero = () => {
   const [showBrochure, setShowBrochure] = useState(false);
   const [diagramExpanded, setDiagramExpanded] = useState(false);
 
+  const handleBrochureClick = (event: MouseEvent) => {
+    event.preventDefault();
+    // Mobile browsers can't render PDFs inside an <iframe>, so skip the
+    // in-page modal there and let the OS handle the file directly.
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) {
+      window.open(BROCHURE_URL, "_blank", "noopener,noreferrer");
+    } else {
+      setShowBrochure(true);
+    }
+  };
+
   useEffect(() => {
     if (!showBrochure) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -80,13 +92,7 @@ export const Hero = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <a
-                href={BROCHURE_URL}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setShowBrochure(true);
-                }}
-              >
+              <a href={BROCHURE_URL} onClick={handleBrochureClick}>
                 Ver brochure
               </a>
             </Button>
