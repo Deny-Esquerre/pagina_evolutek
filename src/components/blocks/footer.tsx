@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArrowUpRight } from "lucide-react";
 
+import { ContactMap } from "@/components/blocks/contact-map";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -21,19 +22,24 @@ export function Footer() {
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
-      <div className="container space-y-3 text-center">
-        <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-          Hablemos de tu proyecto
-        </h2>
-        <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-          Integramos automatización industrial, IoT, datos e Industria 4.0
-          para conectar tus operaciones con el mundo digital y facilitar
-          decisiones basadas en información confiable.
-        </p>
-        <div>
-          <Button size="lg" className="mt-4" asChild>
-            <Link href="/contacto">Cuéntanos el desafío de tu operación</Link>
-          </Button>
+      <div className="container grid items-center gap-10 text-center lg:grid-cols-2 lg:text-left">
+        <div className="space-y-3">
+          <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
+            Hablemos de tu proyecto
+          </h2>
+          <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance lg:mx-0">
+            Integramos automatización industrial, IoT, datos e Industria 4.0
+            para conectar tus operaciones con el mundo digital y facilitar
+            decisiones basadas en información confiable.
+          </p>
+          <div>
+            <Button size="lg" className="mt-4" asChild>
+              <Link href="/contacto">Cuéntanos el desafío de tu operación</Link>
+            </Button>
+          </div>
+        </div>
+        <div className="h-72 w-full overflow-hidden rounded-2xl border shadow-sm sm:h-80 lg:h-96">
+          <ContactMap />
         </div>
       </div>
 
