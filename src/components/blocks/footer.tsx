@@ -67,11 +67,11 @@ export function Footer() {
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="flex flex-col items-center justify-start py-12">
             <Image
-              src="/footer.svg"
+              src="/evolutek-logo-negativo-transparente-4096.png"
               alt="Evolutek"
-              width={1570}
-              height={293}
-              className="h-8 w-auto"
+              width={4096}
+              height={1040}
+              className="h-10 w-auto"
             />
 
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-4">
@@ -90,24 +90,17 @@ export function Footer() {
 
           <Separator className="bg-primary-foreground/15" />
 
-          <div className="flex flex-col-reverse items-center justify-between gap-x-2 gap-y-5 px-6 py-8 sm:flex-row xl:px-0">
-            <span className="text-primary-foreground/70 text-sm">
-              &copy; {new Date().getFullYear()} EVOLUTEK S.R.L. Todos los
-              derechos reservados.
-            </span>
-
-            <div className="text-primary-foreground/70 flex items-center gap-5">
-              {socialLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  aria-label={item.name}
-                  className="hover:text-primary-foreground transition-colors"
-                >
-                  <item.icon className="size-5" />
-                </Link>
-              ))}
-            </div>
+          <div className="flex items-center justify-center gap-5 px-6 py-8 xl:px-0">
+            {socialLinks.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                aria-label={item.name}
+                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+              >
+                <item.icon className="size-5" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
