@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FaTiktok } from "react-icons/fa6";
 
 import { ContactMap } from "@/components/blocks/contact-map";
+import { FooterWordmark } from "@/components/blocks/footer-wordmark";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -92,13 +92,7 @@ export function Footer() {
       </nav>
 
       <div className="mt-10 w-full md:mt-14 lg:mt-20">
-        <Image
-          src="/evolutek-wordmark.svg"
-          alt="Evolutek"
-          width={1570}
-          height={230}
-          className="h-auto w-full"
-        />
+        <FooterWordmark />
       </div>
     </footer>
   );
