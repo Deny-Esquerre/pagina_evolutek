@@ -63,15 +63,15 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="w-full border-t">
+      <div className="bg-primary text-primary-foreground w-full">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="flex flex-col items-center justify-start py-12">
             <Image
-              src="/evolutek-wordmark.svg"
+              src="/footer.svg"
               alt="Evolutek"
               width={1570}
-              height={230}
-              className="h-9 w-auto"
+              height={293}
+              className="h-8 w-auto"
             />
 
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-4">
@@ -79,7 +79,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -88,21 +88,21 @@ export function Footer() {
             </ul>
           </div>
 
-          <Separator />
+          <Separator className="bg-primary-foreground/15" />
 
           <div className="flex flex-col-reverse items-center justify-between gap-x-2 gap-y-5 px-6 py-8 sm:flex-row xl:px-0">
-            <span className="text-muted-foreground text-sm">
+            <span className="text-primary-foreground/70 text-sm">
               &copy; {new Date().getFullYear()} EVOLUTEK S.R.L. Todos los
               derechos reservados.
             </span>
 
-            <div className="text-muted-foreground flex items-center gap-5">
+            <div className="text-primary-foreground/70 flex items-center gap-5">
               {socialLinks.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   aria-label={item.name}
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-primary-foreground transition-colors"
                 >
                   <item.icon className="size-5" />
                 </Link>
