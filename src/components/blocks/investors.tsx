@@ -2,6 +2,12 @@
 
 import { motion } from "motion/react";
 
+const countries = [
+  { code: "pe", name: "Perú" },
+  { code: "bo", name: "Bolivia" },
+  { code: "br", name: "Brasil" },
+];
+
 const highlights = [
   {
     value: "🥉 3.er puesto",
@@ -17,7 +23,22 @@ const highlights = [
       "Experiencia acumulada de nuestros profesionales en automatización, industria y transformación digital.",
   },
   {
-    value: "🇵🇪 Perú · 🇧🇴 Bolivia · 🇧🇷 Brasil",
+    value: (
+      <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+        {countries.map((country, i) => (
+          <span key={country.code} className="inline-flex items-center gap-2">
+            {i > 0 && <span className="text-muted-foreground">·</span>}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/flags/${country.code}.svg`}
+              alt=""
+              className="h-4 w-auto rounded-[2px] shadow-sm"
+            />
+            {country.name}
+          </span>
+        ))}
+      </span>
+    ),
     label: "Presencia internacional",
     detail:
       "Experiencia y proyectos desarrollados en la región andina y latinoamericana.",
