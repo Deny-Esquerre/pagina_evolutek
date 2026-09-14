@@ -2,15 +2,22 @@
 
 import { motion } from "motion/react";
 
+const countries = [
+  { code: "pe", name: "Perú" },
+  { code: "bo", name: "Bolivia" },
+  { code: "br", name: "Brasil" },
+];
+
 const highlights = [
   {
     value: "🥉 3.er puesto",
     label: "DEMO Contest LATAM 2026",
     detail:
       "Reconocimiento obtenido en el concurso relacionado con Canary, comunicado por Vertix Technologies.",
+    highlight: true,
   },
   {
-    value: "Más de 25 años",
+    value: "⏳ Más de 25 años",
     label: "Experiencia profesional acumulada",
     detail:
       "Experiencia acumulada de nuestros profesionales en automatización, industria y transformación digital.",
@@ -20,6 +27,7 @@ const highlights = [
     label: "Presencia internacional",
     detail:
       "Experiencia y proyectos desarrollados en la región andina y latinoamericana.",
+    flags: countries,
   },
 ];
 
@@ -50,9 +58,29 @@ export function Investors() {
             }}
             className="rounded-2xl border bg-background p-6"
           >
-            <h3 className="font-display text-2xl font-semibold">
+            <h3
+              className={
+                highlight.highlight
+                  ? "shine-highlight font-display text-2xl font-semibold"
+                  : "font-display text-2xl font-semibold"
+              }
+            >
               {highlight.value}
             </h3>
+            {highlight.flags && (
+              <div className="mt-3 flex items-center gap-3">
+                {highlight.flags.map((country) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={country.code}
+                    src={`/flags/${country.code}.svg`}
+                    alt={country.name}
+                    title={country.name}
+                    className="h-5 w-auto rounded-[2px] shadow-sm"
+                  />
+                ))}
+              </div>
+            )}
             <p className="mt-2 font-semibold">{highlight.label}</p>
             <p className="mt-1 text-sm leading-snug text-muted-foreground">
               {highlight.detail}
@@ -60,6 +88,40 @@ export function Investors() {
           </motion.div>
         ))}
       </div>
+
+      <style>{`
+        .shine-highlight {
+          position: relative;
+          display: inline-block;
+          width: fit-content;
+          background: linear-gradient(
+            100deg,
+            #b8860b 20%,
+            #ffe9a8 40%,
+            #fff6da 50%,
+            #ffe9a8 60%,
+            #b8860b 80%
+          );
+          background-size: 250% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: shine-highlight-sweep 3s linear infinite;
+        }
+        @keyframes shine-highlight-sweep {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .shine-highlight {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }

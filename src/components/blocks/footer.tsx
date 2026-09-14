@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FaTiktok } from "react-icons/fa6";
 
 import { ContactMap } from "@/components/blocks/contact-map";
+import { FooterWordmark } from "@/components/blocks/footer-wordmark";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -31,12 +31,12 @@ export function Footer() {
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
-      <div className="container grid items-center gap-10 text-center lg:grid-cols-2 lg:text-left">
+      <div className="container grid items-center gap-10 text-center lg:grid-cols-2">
         <div className="space-y-3">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
             Hablemos de tu proyecto
           </h2>
-          <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance lg:mx-0">
+          <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
             Integramos automatización industrial, IoT, datos e Industria 4.0
             para conectar tus operaciones con el mundo digital y facilitar
             decisiones basadas en información confiable.
@@ -92,13 +92,7 @@ export function Footer() {
       </nav>
 
       <div className="mt-10 w-full md:mt-14 lg:mt-20">
-        <Image
-          src="/evolutek-wordmark.svg"
-          alt="Evolutek"
-          width={1570}
-          height={230}
-          className="h-auto w-full"
-        />
+        <FooterWordmark />
       </div>
     </footer>
   );

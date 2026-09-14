@@ -649,6 +649,7 @@ function MarkerPopup({
   const popup = useMemo(() => {
     const popupInstance = new MapLibreGL.Popup({
       offset: 16,
+      closeOnClick: false,
       ...popupOptions,
       closeButton: false,
     })
@@ -665,11 +666,16 @@ function MarkerPopup({
     popup.setDOMContent(container);
     marker.setPopup(popup);
 
-    // Open it right away instead of waiting for a click. Added straight to
-    // the map (not via marker.togglePopup) so it doesn't depend on the
-    // marker's own "added to map" effect having already run.
-    if (open && !popup.isOpen()) {
-      popup.setLngLat(marker.getLngLat()).addTo(map);
+    // Open it right away instead of waiting for a click, and react to
+    // `open` toggling later (e.g. driven by scroll-into-view). Added
+    // straight to the map (not via marker.togglePopup) so it doesn't depend
+    // on the marker's own "added to map" effect having already run.
+    if (open) {
+      if (!popup.isOpen()) {
+        popup.setLngLat(marker.getLngLat()).addTo(map);
+      }
+    } else if (popup.isOpen()) {
+      popup.remove();
     }
 
     return () => {

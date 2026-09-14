@@ -1,27 +1,83 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
+} from "motion/react";
 
 import { DashedLine } from "@/components/dashed-line";
 
 const stats = [
   {
-    value: "+25",
+    number: 25,
+    prefix: "+",
+    suffix: "",
     label: "Años de experiencia profesional acumulada",
   },
   {
-    value: "3",
+    number: 3,
+    prefix: "",
+    suffix: "",
     label: "Países: Perú, Bolivia y Brasil",
   },
   {
-    value: "8",
+    number: 8,
+    prefix: "",
+    suffix: "",
     label: "Tecnologías industriales integradas",
   },
   {
-    value: "3.er",
+    number: 3,
+    prefix: "",
+    suffix: ".er",
     label: "Puesto — DEMO Contest LATAM 2026",
+    highlight: true,
   },
 ];
+
+function Counter({
+  value,
+  prefix,
+  suffix,
+}: {
+  value: number;
+  prefix: string;
+  suffix: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.6 });
+  const count = useMotionValue(0);
+  const [display, setDisplay] = useState(0);
+
+  useMotionValueEvent(count, "change", (latest) => {
+    setDisplay(Math.round(latest));
+  });
+
+  useEffect(() => {
+    if (!isInView) {
+      count.set(0);
+      return;
+    }
+    const controls = animate(count, value, {
+      duration: 1.4,
+      ease: "easeOut",
+    });
+    return controls.stop;
+  }, [isInView, value, count]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {display}
+      {suffix}
+    </span>
+  );
+}
 
 export function AboutHero() {
   return (
@@ -97,14 +153,83 @@ export function AboutHero() {
               }}
               className="flex flex-col gap-1"
             >
-              <div className="font-display text-4xl tracking-wide md:text-5xl">
-                {stat.value}
+              <div
+                className={
+                  stat.highlight
+                    ? "shine-stat font-display text-4xl tracking-wide md:text-5xl"
+                    : "font-display text-4xl tracking-wide md:text-5xl"
+                }
+              >
+                <Counter
+                  value={stat.number}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                />
               </div>
               <div className="text-muted-foreground">{stat.label}</div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        .shine-stat {
+          position: relative;
+          display: inline-block;
+          width: fit-content;
+          background: linear-gradient(
+            100deg,
+            #b8860b 20%,
+            #ffe9a8 40%,
+            #fff6da 50%,
+            #ffe9a8 60%,
+            #b8860b 80%
+          );
+          background-size: 250% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: shine-sweep 3s linear infinite;
+        }
+        .shine-stat::after {
+          content: "";
+          position: absolute;
+          inset: -10px -14px;
+          z-index: -1;
+          border-radius: 9999px;
+          background: radial-gradient(
+            circle,
+            rgba(255, 210, 100, 0.35),
+            transparent 70%
+          );
+          animation: shine-glow 2.4s ease-in-out infinite;
+        }
+        @keyframes shine-sweep {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+        @keyframes shine-glow {
+          0%,
+          100% {
+            opacity: 0.35;
+            transform: scale(0.94);
+          }
+          50% {
+            opacity: 0.9;
+            transform: scale(1.06);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .shine-stat,
+          .shine-stat::after {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
