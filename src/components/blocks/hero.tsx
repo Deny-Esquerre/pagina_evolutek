@@ -14,10 +14,7 @@ import {
   X,
 } from "lucide-react";
 
-import {
-  MobileUnsDiagram,
-  ScaledUnsDiagram,
-} from "@/components/blocks/uns-architecture-diagram";
+import { ScaledUnsDiagram } from "@/components/blocks/uns-architecture-diagram";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -141,7 +138,7 @@ export const Hero = () => {
       <div className="mt-12 md:mt-20 lg:mt-24">
         <div
           className={cn(
-            "relative hidden lg:block",
+            "relative",
             diagramExpanded ? "px-6" : "container",
           )}
         >
@@ -158,9 +155,6 @@ export const Hero = () => {
             {diagramExpanded ? <Minimize2 /> : <Maximize2 />}
           </Button>
           <ScaledUnsDiagram />
-        </div>
-        <div className="container lg:hidden">
-          <MobileUnsDiagram />
         </div>
       </div>
       </section>
