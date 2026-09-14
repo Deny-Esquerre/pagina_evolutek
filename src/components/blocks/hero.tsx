@@ -7,6 +7,8 @@ import {
   Cpu,
   Database,
   Download,
+  Maximize2,
+  Minimize2,
   Network,
   Wifi,
   X,
@@ -18,6 +20,7 @@ import {
 } from "@/components/blocks/uns-architecture-diagram";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const BROCHURE_URL = "/brochures/EVOLUTEK BROCHURE_2026.pdf";
 
@@ -46,6 +49,7 @@ const features = [
 
 export const Hero = () => {
   const [showBrochure, setShowBrochure] = useState(false);
+  const [diagramExpanded, setDiagramExpanded] = useState(false);
 
   useEffect(() => {
     if (!showBrochure) return;
@@ -134,8 +138,25 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-12 md:mt-20 lg:container lg:mt-24">
-        <div className="hidden lg:block">
+      <div className="mt-12 md:mt-20 lg:mt-24">
+        <div
+          className={cn(
+            "relative hidden lg:block",
+            diagramExpanded ? "px-6" : "container",
+          )}
+        >
+          <Button
+            type="button"
+            size="icon-sm"
+            variant="outline"
+            className="bg-background absolute top-4 right-4 z-40 shadow-md"
+            aria-label={
+              diagramExpanded ? "Contraer diagrama" : "Expandir diagrama"
+            }
+            onClick={() => setDiagramExpanded((expanded) => !expanded)}
+          >
+            {diagramExpanded ? <Minimize2 /> : <Maximize2 />}
+          </Button>
           <ScaledUnsDiagram />
         </div>
         <div className="container lg:hidden">
