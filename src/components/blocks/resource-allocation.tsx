@@ -2,6 +2,8 @@
 
 import type { ReactNode } from "react";
 
+import { useEffect, useRef, useState } from "react";
+
 import Image from "next/image";
 
 import { motion } from "motion/react";
@@ -275,9 +277,27 @@ const LogoTile = ({
   align?: "left" | "center" | "right";
 }) => {
   const name = image.alt.replace(/\s+logo$/i, "");
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () =>
+      document.removeEventListener("pointerdown", handlePointerDown);
+  }, [open]);
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
       whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
       viewport={{ once: false, amount: 0.4 }}
@@ -289,7 +309,13 @@ const LogoTile = ({
       }}
       className="group relative"
     >
-      <div className="bg-background relative z-0 grid aspect-square size-16 place-items-center overflow-hidden rounded-2xl p-2 lg:size-20">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-label={name}
+        className="bg-background relative z-0 grid aspect-square size-16 place-items-center overflow-hidden rounded-2xl p-2 lg:size-20"
+      >
         <Image
           src={image.src}
           alt={image.alt}
@@ -305,12 +331,13 @@ const LogoTile = ({
               : "from-muted left-0 w-14 bg-linear-to-r",
           )}
         />
-      </div>
+      </button>
 
-      {/* Hover popover: full-size logo + short description */}
+      {/* Popover: full-size logo + short description. Shown on hover (desktop) or tap (mobile). */}
       <div
         className={cn(
           "pointer-events-none absolute bottom-[calc(100%+0.75rem)] z-30 w-56 scale-95 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100",
+          open && "pointer-events-auto scale-100 opacity-100",
           align === "left" && "left-0",
           align === "right" && "right-0",
           align === "center" && "left-1/2 -translate-x-1/2",

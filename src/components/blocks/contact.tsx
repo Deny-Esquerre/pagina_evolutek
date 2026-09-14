@@ -2,63 +2,64 @@ import React from "react";
 
 import Link from "next/link";
 
-import { Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { FaTiktok } from "react-icons/fa6";
 
 import { ContactForm } from "@/components/blocks/contact-form";
 import { DashedLine } from "@/components/dashed-line";
 
+const CONTACT_EMAIL = "Administracion@evolutek.pe";
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://pe.linkedin.com/company/evolutek-srl",
+    icon: Linkedin,
+  },
+  { name: "Facebook", href: "#", icon: Facebook },
+  { name: "YouTube", href: "#", icon: Youtube },
+  { name: "TikTok", href: "#", icon: FaTiktok },
+  { name: "Instagram", href: "#", icon: Instagram },
+];
+
 const contactInfo = [
   {
-    title: "Corporate office",
+    title: "Oficina principal",
     content: (
       <p className="text-muted-foreground mt-3">
-        1 Carlsberg Close
+        Urbanización Enapu A-14
         <br />
-        1260 Hillview, Australia
+        Talara, Piura, Perú
       </p>
     ),
   },
   {
-    title: "Email us",
+    title: "Escríbenos",
     content: (
       <div className="mt-3">
-        <div>
-          <p className="">Careers</p>
-          <Link
-            href="mailto:careers@example.com"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            careers@example.com
-          </Link>
-        </div>
-        <div className="mt-1">
-          <p className="">Press</p>
-          <Link
-            href="mailto:press@example.com"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            press@example.com
-          </Link>
-        </div>
+        <Link
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="text-muted-foreground hover:text-foreground"
+        >
+          {CONTACT_EMAIL}
+        </Link>
       </div>
     ),
   },
   {
-    title: "Follow us",
+    title: "Síguenos",
     content: (
-      <div className="mt-3 flex gap-6 lg:gap-10">
-        <Link href="#" className="text-muted-foreground hover:text-foreground">
-          <Facebook className="size-5" />
-        </Link>
-        <Link
-          href="https://x.com/ausrobdev"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <Twitter className="size-5" />
-        </Link>
-        <Link href="#" className="text-muted-foreground hover:text-foreground">
-          <Linkedin className="size-5" />
-        </Link>
+      <div className="mt-3 flex gap-5 lg:gap-6">
+        {socialLinks.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            aria-label={item.name}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <item.icon className="size-5" />
+          </Link>
+        ))}
       </div>
     ),
   },
@@ -69,10 +70,10 @@ export default function Contact() {
     <section className="py-28 lg:py-32 lg:pt-44">
       <div className="container max-w-2xl">
         <h1 className="text-center text-2xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-          Contact us
+          Contáctanos
         </h1>
         <p className="text-muted-foreground mt-4 text-center leading-snug font-medium lg:mx-auto">
-          Hopefully this form gets through our spam filters.
+          Cuéntanos sobre tu proyecto y te responderemos a la brevedad.
         </p>
 
         <div className="mt-10 flex justify-between gap-8 max-sm:flex-col md:mt-14 lg:mt-20 lg:gap-12">
@@ -88,7 +89,7 @@ export default function Contact() {
 
         {/* Inquiry Form */}
         <div className="mx-auto">
-          <h2 className="mb-4 text-lg font-semibold">Inquiries</h2>
+          <h2 className="mb-4 text-lg font-semibold">Escríbenos</h2>
           <ContactForm />
         </div>
       </div>
