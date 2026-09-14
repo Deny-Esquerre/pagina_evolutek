@@ -1,5 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
 import { useAction } from "next-safe-action/hooks";
@@ -28,7 +30,26 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { formSchema } from "@/lib/form-schema";
 
+const CONTACT_EMAIL = "Administracion@evolutek.pe";
+
 type Schema = z.infer<typeof formSchema>;
+
+function openMailClient(data: Schema) {
+  const subject = `Nuevo contacto desde evolutek.pe — ${data.name}`;
+  const body = [
+    `Nombre: ${data.name}`,
+    `Correo: ${data.email}`,
+    data.company && `Empresa: ${data.company}`,
+    data.employees && `N.º de empleados: ${data.employees}`,
+    "",
+    data.message,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const params = new URLSearchParams({ subject, body });
+  window.location.href = `mailto:${CONTACT_EMAIL}?${params.toString()}`;
+}
 
 export function ContactForm() {
   const form = useForm<Schema>({
@@ -43,8 +64,8 @@ export function ContactForm() {
     } as unknown as Schema,
   });
   const formAction = useAction(serverAction, {
-    onSuccess: () => {
-      // TODO: show success message
+    onSuccess: ({ input }) => {
+      openMailClient(input);
       form.reset();
     },
     onError: () => {
@@ -79,10 +100,15 @@ export function ContactForm() {
             <Check className="size-8" />
           </motion.div>
           <h2 className="mb-2 text-center text-2xl font-bold text-pretty">
-            Thank you
+            ¡Gracias!
           </h2>
           <p className="text-muted-foreground text-center text-lg text-pretty">
-            Form submitted successfully, we will get back to you soon
+            Hemos abierto tu cliente de correo para que envíes el mensaje. Si
+            no se abrió, escríbenos directamente a{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+              {CONTACT_EMAIL}
+            </a>
+            .
           </p>
         </motion.div>
       </div>
@@ -101,7 +127,7 @@ export function ContactForm() {
           rules={{ required: true }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Full name * </FormLabel>
+              <FormLabel>Nombre completo * </FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -110,7 +136,7 @@ export function ContactForm() {
                     const val = e.target.value;
                     field.onChange(val);
                   }}
-                  placeholder="First and last name"
+                  placeholder="Nombre y apellido"
                 />
               </FormControl>
 
@@ -124,7 +150,7 @@ export function ContactForm() {
           rules={{ required: true }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Email address * </FormLabel>
+              <FormLabel>Correo electrónico * </FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -133,7 +159,7 @@ export function ContactForm() {
                     const val = e.target.value;
                     field.onChange(val);
                   }}
-                  placeholder="me@company.com"
+                  placeholder="tu@empresa.com"
                 />
               </FormControl>
 
@@ -147,7 +173,7 @@ export function ContactForm() {
           rules={{ required: false }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Company name </FormLabel>
+              <FormLabel>Nombre de la empresa </FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -156,7 +182,7 @@ export function ContactForm() {
                     const val = e.target.value;
                     field.onChange(val);
                   }}
-                  placeholder="Company name"
+                  placeholder="Nombre de la empresa"
                 />
               </FormControl>
 
@@ -178,11 +204,11 @@ export function ContactForm() {
             ];
             return (
               <FormItem className="w-full">
-                <FormLabel>Number of employees </FormLabel>
+                <FormLabel>Número de empleados </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="e.g. 11-50" />
+                      <SelectValue placeholder="Ej. 11-50" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -206,11 +232,11 @@ export function ContactForm() {
           rules={{ required: true }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your message * </FormLabel>
+              <FormLabel>Tu mensaje * </FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
-                  placeholder="Write your message"
+                  placeholder="Escribe tu mensaje"
                   className="resize-none"
                 />
               </FormControl>
@@ -233,7 +259,12 @@ export function ContactForm() {
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel>I agree to the terms and conditions</FormLabel>
+                <FormLabel>
+                  Acepto la{" "}
+                  <Link href="/privacidad" className="underline">
+                    política de privacidad
+                  </Link>
+                </FormLabel>
 
                 <FormMessage />
               </div>
@@ -242,7 +273,7 @@ export function ContactForm() {
         />
         <div className="flex w-full items-center justify-end pt-3">
           <Button className="rounded-lg" size="sm">
-            {isExecuting ? "Submitting..." : "Submit"}
+            {isExecuting ? "Enviando..." : "Enviar"}
           </Button>
         </div>
       </form>
