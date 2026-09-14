@@ -41,12 +41,12 @@ export function Footer() {
             para conectar tus operaciones con el mundo digital y facilitar
             decisiones basadas en información confiable.
           </p>
-          <div>
+          <div className="flex justify-center">
             <Button size="lg" className="mt-4" asChild>
               <Link href="/contacto">Cuéntanos el desafío de tu operación</Link>
             </Button>
           </div>
-          <div className="flex items-center justify-center gap-4 pt-2 lg:justify-start">
+          <div className="flex items-center justify-center gap-4 pt-2">
             {socialLinks.map((item) => (
               <Link
                 key={item.name}
