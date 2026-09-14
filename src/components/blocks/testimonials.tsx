@@ -87,15 +87,17 @@ export const Testimonials = ({
         <div className="container">
           <div className="space-y-4">
             <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-              Trusted by product builders
+              La voz de nuestro equipo
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Mainline is built on the habits that make the best product teams
-              successful: staying focused, moving quickly, and always aiming for
-              high-quality work.
+              En EVOLUTEK, nuestros colaboradores viven de cerca la
+              automatización industrial, el IoT y la transformación digital.
+              Esto es lo que ellos tienen para contar.
             </p>
-            <Button variant="outline" className="shadow-md">
-              Read our Customer Stories <ArrowRight className="size-4" />
+            <Button variant="outline" className="shadow-md" asChild>
+              <a href="/nosotros">
+                Conoce a nuestro equipo <ArrowRight className="size-4" />
+              </a>
             </Button>
           </div>
 
