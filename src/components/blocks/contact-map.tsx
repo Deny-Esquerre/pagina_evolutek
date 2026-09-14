@@ -1,6 +1,6 @@
 "use client";
 
-import { Map, MapControls, MapMarker, MarkerContent, MarkerLabel } from "@/components/ui/map";
+import { Map, MapControls, MapMarker, MarkerContent, MarkerPopup } from "@/components/ui/map";
 
 const OFFICE_COORDINATES = {
   longitude: -81.26659172553019,
@@ -22,12 +22,18 @@ export function ContactMap() {
         <MarkerContent>
           <div className="size-4 rounded-full border-2 border-white bg-[#191A55] shadow-lg" />
         </MarkerContent>
-        <MarkerLabel
-          position="bottom"
-          className="rounded-md bg-[#191A55] px-2 py-1 text-white shadow-sm"
-        >
-          Urbanización Enapu A-14, Talara
-        </MarkerLabel>
+        <MarkerPopup closeButton>
+          <div className="flex flex-col items-center gap-2 text-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Evolutek" className="h-8 w-auto" />
+            <p className="text-foreground text-sm font-semibold">
+              Aquí se encuentra Evolutek
+            </p>
+            <p className="text-muted-foreground text-xs">
+              Urbanización Enapu A-14, Talara, Piura, Perú
+            </p>
+          </div>
+        </MarkerPopup>
       </MapMarker>
     </Map>
   );
