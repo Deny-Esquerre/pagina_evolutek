@@ -26,9 +26,6 @@ export function ContactMap() {
           <div className="flex flex-col items-center gap-2 text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.svg" alt="Evolutek" className="h-8 w-auto" />
-            <p className="text-foreground text-sm font-semibold">
-              Oficina principal de EVOLUTEK
-            </p>
             <p className="text-muted-foreground text-xs">
               Urbanización Enapu A-14, Talara, Piura, Perú
             </p>
