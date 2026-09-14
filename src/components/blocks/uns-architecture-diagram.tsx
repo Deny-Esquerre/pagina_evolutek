@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { Barlow, Barlow_Condensed, Montserrat } from "next/font/google";
 
+import { ChevronDown } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["600", "700", "800"],
@@ -1272,6 +1276,122 @@ export const UnsArchitectureDiagram = () => {
           Presione cualquier bloque para ver su detalle
         </div>
       )}
+    </div>
+  );
+};
+
+const MOBILE_GROUPS: { heading: string; keys: NodeKey[] }[] = [
+  { heading: "Productores de datos y silos", keys: ["sql", "ts", "erp", "eam"] },
+  { heading: "Productores en tiempo real", keys: ["iot", "mqtt", "opc"] },
+  { heading: "Capa de integración", keys: ["uaf", "uns"] },
+  { heading: "Consumidores de datos", keys: ["dw", "kafka", "llm", "app"] },
+];
+
+const MOBILE_ICONS: Record<NodeKey, () => React.JSX.Element> = {
+  sql: IconServer,
+  ts: IconTrend,
+  erp: IconBuilding,
+  eam: IconWrench,
+  iot: IconGateway,
+  mqtt: IconMqtt,
+  opc: IconOpc,
+  uaf: IconServer,
+  uns: IconGateway,
+  dw: IconDw,
+  kafka: IconStream,
+  llm: IconBrain,
+  app: IconChart,
+};
+
+const MobileAccordionItem = ({
+  nodeKey,
+  isOpen,
+  onToggle,
+}: {
+  nodeKey: NodeKey;
+  isOpen: boolean;
+  onToggle: () => void;
+}) => {
+  const info = INFO[nodeKey];
+  const Icon = MOBILE_ICONS[nodeKey];
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-black/10 bg-white">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="flex w-full items-center gap-3 px-4 py-3 text-left"
+      >
+        <span
+          className="flex size-9 shrink-0 items-center justify-center rounded-lg"
+          style={{ background: info.bg }}
+        >
+          <Icon />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="text-foreground block text-sm font-semibold">
+            {info.title}
+          </span>
+          <span className="text-muted-foreground block text-xs">
+            {info.kicker}
+          </span>
+        </span>
+        <ChevronDown
+          className={cn(
+            "text-muted-foreground size-4 shrink-0 transition-transform duration-200",
+            isOpen && "rotate-180",
+          )}
+        />
+      </button>
+      {isOpen && (
+        <div className="border-t border-black/10 px-4 pt-3 pb-4">
+          <div
+            className="h-1 w-10 rounded-full"
+            style={{ background: info.rule }}
+          />
+          <ul className="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+            {info.bullets.map((bullet, i) => (
+              <li key={i} className="flex gap-2">
+                <span
+                  className="mt-1.5 size-1.5 shrink-0 rotate-45"
+                  style={{ background: info.rule }}
+                />
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const MobileUnsDiagram = () => {
+  const [openKey, setOpenKey] = useState<NodeKey | null>(null);
+
+  return (
+    <div className="flex flex-col gap-6">
+      <p className="text-muted-foreground text-sm">
+        Toca cada bloque para ver su función en la arquitectura.
+      </p>
+      {MOBILE_GROUPS.map((group) => (
+        <div key={group.heading}>
+          <div className="text-muted-foreground mb-2 text-xs font-semibold tracking-widest uppercase">
+            {group.heading}
+          </div>
+          <div className="flex flex-col gap-2">
+            {group.keys.map((key) => (
+              <MobileAccordionItem
+                key={key}
+                nodeKey={key}
+                isOpen={openKey === key}
+                onToggle={() => setOpenKey((prev) => (prev === key ? null : key))}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

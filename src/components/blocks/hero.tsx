@@ -12,7 +12,10 @@ import {
   X,
 } from "lucide-react";
 
-import { ScaledUnsDiagram } from "@/components/blocks/uns-architecture-diagram";
+import {
+  MobileUnsDiagram,
+  ScaledUnsDiagram,
+} from "@/components/blocks/uns-architecture-diagram";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 
@@ -132,7 +135,12 @@ export const Hero = () => {
       </div>
 
       <div className="mt-12 md:mt-20 lg:container lg:mt-24">
-        <ScaledUnsDiagram />
+        <div className="hidden lg:block">
+          <ScaledUnsDiagram />
+        </div>
+        <div className="container lg:hidden">
+          <MobileUnsDiagram />
+        </div>
       </div>
       </section>
 
