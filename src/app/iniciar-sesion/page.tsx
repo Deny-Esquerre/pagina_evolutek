@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+
+export const metadata: Metadata = {
+  title: "Iniciar sesión",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 const Login = () => {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +8,14 @@ import { Background } from "@/components/background";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+
+export const metadata: Metadata = {
+  title: "Registro",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 const Signup = () => {
   return (

@@ -5,9 +5,55 @@ import type { Metadata } from "next";
 
 import { Footer } from "@/components/blocks/footer";
 import { Navbar } from "@/components/blocks/navbar";
+import { JsonLd } from "@/components/json-ld";
 import { StyleGlideProvider } from "@/components/styleglide-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import {
+  CONTACT_COORDINATES,
+  CONTACT_EMAIL,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+  SOCIAL_LINKS,
+} from "@/lib/site";
 import "@/styles/globals.css";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "EVOLUTEK SRL",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.svg`,
+  description: SITE_DESCRIPTION,
+  email: CONTACT_EMAIL,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Urbanización Enapu A-14",
+    addressLocality: "Talara",
+    addressRegion: "Piura",
+    addressCountry: "PE",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: CONTACT_COORDINATES.latitude,
+    longitude: CONTACT_COORDINATES.longitude,
+  },
+  sameAs: [SOCIAL_LINKS.linkedin],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  description:
+    "Automatización industrial, IoT, integración IT/OT e Industria 4.0.",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "es-PE",
+};
 
 const dmSans = localFont({
   src: [
@@ -62,32 +108,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "EVOLUTEK - Tecnología e Industria 4.0",
+    default: SITE_TITLE,
     template: "%s | EVOLUTEK",
   },
-  description: "EVOLUTEK - Tecnología e Industria 4.0.",
+  description: SITE_DESCRIPTION,
   keywords: [
-    "Next.js",
-    "nextjs template",
-    "nextjs theme",
-    "nextjs starter",
-    "shadcn template",
-    "shadcn theme",
-    "shadcn starter",
-    "tailwind template",
-    "tailwind theme",
-    "tailwind starter",
-    "mdx template",
-    "mdx theme",
-    "mdx starter",
+    "automatización industrial",
+    "IoT industrial",
+    "Industria 4.0",
+    "integración IT/OT",
+    "SCADA",
+    "historización de datos industriales",
+    "fiscalización de hidrocarburos",
+    "transformación digital industrial",
+    "EVOLUTEK Perú",
   ],
-  authors: [{ name: "shadcnblocks.com" }],
-  creator: "shadcnblocks.com",
-  publisher: "shadcnblocks.com",
+  authors: [{ name: "EVOLUTEK SRL" }],
+  creator: "EVOLUTEK SRL",
+  publisher: "EVOLUTEK SRL",
+  applicationName: "EVOLUTEK",
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
   icons: {
     icon: [
@@ -101,9 +148,13 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "EVOLUTEK - Tecnología e Industria 4.0",
-    description: "EVOLUTEK - Tecnología e Industria 4.0.",
-    siteName: "EVOLUTEK",
+    type: "website",
+    locale: "es_PE",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description:
+      "Integramos automatización industrial, IoT, datos e Industria 4.0 para conectar tus operaciones con el mundo digital.",
     images: [
       {
         url: "/og-image.jpg",
@@ -115,8 +166,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EVOLUTEK - Tecnología e Industria 4.0",
-    description: "EVOLUTEK - Tecnología e Industria 4.0.",
+    title: SITE_TITLE,
+    description:
+      "Integramos automatización industrial, IoT, datos e Industria 4.0 para conectar tus operaciones con el mundo digital.",
     images: ["/og-image.jpg"],
   },
 };
@@ -127,13 +179,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
-        <script
-          async
-          crossOrigin="anonymous"
-          src="https://tweakcn.com/live-preview.min.js"
-        />
+        <JsonLd data={organizationJsonLd} />
+        <JsonLd data={websiteJsonLd} />
       </head>
       <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
         <ThemeProvider
